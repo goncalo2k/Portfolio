@@ -1,59 +1,28 @@
-@media (max-width: 640px) {
+@use "@goncalo2k/g2k-styles/sizes" as sizes;
+@use "@goncalo2k/g2k-styles/colors" as colors;
+@use "@goncalo2k/g2k-styles/breakpoints" as bps;
+
+@include bps.tablet-down {
     .label {
         display: none !important;
     }
 }
 
 .header-container {
-    padding-left: var(--radius-md);
-    padding-right: var(--radius-md);
-    padding-top: var(--radius-xl);
-    padding-bottom: var(--radius-xl);
+    position: fixed;
+    z-index: 99;
+    justify-self: center;
+    padding: sizes.$spacing-2 sizes.$spacing-6;
+    margin: sizes.$spacing-6;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--color-background-3);
-}
-
-.left-container {
-    display: flex;
-    flex-direction: row;
-    gap: var(--radius-md);
-    padding: var(--radius-xs);
-    align-items: center;
-}
-
-.left-container:hover {
-    cursor: pointer;
-}
-
-.label,
-.icon {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
     justify-content: center;
-}
+    gap: sizes.$spacing-4;
+    border: 1px solid colors.$navy-800;
+    background-color: colors.$navy-850;
+    border-radius: sizes.$spacing-4;
 
-.user-label {
-    padding: var(--radius-xs);
-}
-
-.right-container,
-.contributors-button-container {
-    display: flex;
-    flex-direction: row;
-    gap: var(--radius-md);
-    padding: var(--radius-sm);
-    align-items: center;
-}
-
-.contributors-button-container {
-    height: 100%;
-}
-
-.avatar {
-    width: 32px;
-    width: 32px;
-    border-radius: var(--radius-sm);
+    .label {
+        color: colors.$gray-200;
+    }
 }

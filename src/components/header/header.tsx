@@ -3,23 +3,21 @@
 
 import './header.scss';
 
-import React from 'react';
 
-export default function Header() {
-    const { width } = useWindowSize();
+type HeaderProps = {
+    children?: React.ReactNode;
+};
 
-    const isMobile = width <= 640;
-    const isLaptop = width >= 1024;
-
+export default function Header(props: HeaderProps) {
     return (
         <>
             <div className='header-container'>
-                <div className='left-container'>
-                    {/* todo: logo */}
-                    <span>Gonçalo Miranda</span>
-                </div>
-                <div className='right-container'>
-                </div>
+                <span className='label link'>Home</span>
+                <span className='label link'>Experience</span>
+                <span className='label link'>Education</span>
+                <span className='label link'>Projects</span>
+                <span className='label link'>Contacts</span>
+                {props.children}
             </div>
         </>
     );
