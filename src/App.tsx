@@ -1,8 +1,5 @@
-import cloudflareLogo from './assets/Cloudflare_Logo.svg'
-
 import './App.scss'
 import Header from './components/header/header'
-import { SiSpotify } from 'react-icons/si'
 import Welcome from './pages/welcome/welcome'
 
 function App() {
