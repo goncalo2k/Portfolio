@@ -9,7 +9,8 @@
 }
 
 .header-container {
-    position: fixed;
+    position: sticky;
+    top: 0;
     z-index: 99;
     justify-self: center;
     padding: sizes.$spacing-2 sizes.$spacing-6;
@@ -19,8 +20,9 @@
     justify-content: center;
     gap: sizes.$spacing-4;
     border: 1px solid colors.$navy-800;
-    background-color: colors.$navy-850;
     border-radius: sizes.$spacing-4;
+    background-color: colors.$navy-850;
+    opacity: 75%;
 
     .label {
         color: colors.$gray-200;

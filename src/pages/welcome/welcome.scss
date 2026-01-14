@@ -1,0 +1,32 @@
+@use "@goncalo2k/g2k-styles/colors" as colors;
+@use "@goncalo2k/g2k-styles/sizes" as sizes;
+
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    gap: sizes.$spacing-12;
+    margin-top: sizes.$spacing-12;
+
+    .name-label {
+        background: radial-gradient(circle at 50% 55%,
+                colors.$secondary,
+                colors.$primary 75%);
+        -webkit-background-clip: text;
+        background-clip: text;
+
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    }
+
+    .text {
+        padding: sizes.$spacing-2 sizes.$spacing-6;
+        margin: 0 sizes.$spacing-12;
+    }
+
+    .multi-button-container {
+        display: flex;
+        flex-direction: row;
+        gap: sizes.$spacing-4;
+        align-self: center;
+    }
+}

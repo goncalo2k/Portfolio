@@ -14,15 +14,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a, .link {
+.link {
   font-weight: 500;
   color: colors.$primary;
   text-decoration: inherit;
   will-change: filter;
-	transition: filter 300ms;
+  transition: filter 300ms;
 }
 
-a:hover, .link:hover{
+.link:hover {
   color: colors.$secondary;
   filter: drop-shadow(0 0 sizes.$spacing-2 colors.$secondary);
 }
@@ -36,43 +36,61 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  margin: 0;
+}
+
+.title {
+  font-size: 72px;
   line-height: 1.1;
 }
 
-button {
-  border-radius: sizes.$spacing-2;
-  border: 1px solid transparent;
-  padding: sizes.$spacing-2 sizes.$spacing-2;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background: linear-gradient(135deg,
-      colors.$primary,
-      colors.$secondary );
-  cursor: pointer;
-  transition: border-color 0.25s;
+.sub-title {
+  font-size: 30px;
+  line-height: 1.1;
 }
 
-button:hover {
-  border-color: colors.$primary;
-}
+.text {
+  font-size: 20px;
+  line-height: 1;
 
-button:focus,
-button:focus-visible {
-  outline: sizes.$spacing-1 auto -webkit-focus-ring-color;
+  &.secondary {
+    font-weight: lighter;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     color: colors.$gray-200;
     background: radial-gradient(circle at 50% 55%,
-        colors.$navy-850,
+        colors.$primary,
         colors.$navy-900 75%);
     background-color: colors.$white;
-  }
 
-  button {
-    background-color: colors.$gray-100;
+    @keyframes gradient {
+
+      0%,
+      100% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 50% 0%;
+      }
+    }
+
+    @keyframes glow-pulse {
+
+      0%,
+      100% {
+        filter: none;
+      }
+
+      50% {
+        filter: drop-shadow(0 0 sizes.$spacing-2 colors.$primary);
+      }
+    }
+
+    background-size: 200% 200%;
+    animation: gradient 10s ease infinite;
   }
 }

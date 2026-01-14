@@ -1,0 +1,45 @@
+@use "@goncalo2k/g2k-styles/colors" as colors;
+@use "@goncalo2k/g2k-styles/sizes" as sizes;
+
+.button-container {
+    min-width: 180px;
+    /* todo: refactor */
+    border: 1px solid colors.$navy-800;
+    border-radius: sizes.$spacing-12;
+    align-self: center;
+    max-width: 12em;
+    padding: sizes.$spacing-2 sizes.$spacing-4;
+
+    background-color: colors.$navy-850;
+    opacity: 75%;
+
+    animation: glow-pulse 5s ease infinite;
+
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+
+    &.no-pointer {
+        cursor: default;
+    }
+
+    cursor: pointer;
+    will-change: filter;
+    transition: filter 300ms;
+
+    :hover {
+        color: colors.$secondary;
+        filter: drop-shadow(0 0 sizes.$spacing-2 colors.$secondary);
+    }
+
+    :focus,
+    :focus-visible {
+        outline: sizes.$spacing-0 auto -webkit-focus-ring-color;
+    }
+
+    .text-content {
+        color: radial-gradient(circle at 50% 55%,
+                colors.$primary,
+                colors.$navy-900 75%);
+    }
+}
