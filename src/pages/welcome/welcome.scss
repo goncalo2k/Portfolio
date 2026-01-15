@@ -23,10 +23,28 @@
         margin: 0 sizes.$spacing-12;
     }
 
-    .multi-button-container {
+    .multi-button-container,
+    .multi-chip-container {
         display: flex;
         flex-direction: row;
         gap: sizes.$spacing-4;
         align-self: center;
+    }
+
+    .travel-link {
+        animation: chip-bounce 1.8s ease-in-out infinite;
+        will-change: transform;
+    }
+
+    @keyframes chip-bounce {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-6px);
+        }
     }
 }

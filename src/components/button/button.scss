@@ -2,10 +2,12 @@
 @use "@goncalo2k/g2k-styles/sizes" as sizes;
 
 .button-container {
-    min-width: 180px;
-    /* todo: refactor */
+    &.-min-width {
+        min-width: 180px;
+    }
+
     border: 1px solid colors.$navy-800;
-    border-radius: sizes.$spacing-12;
+    border-radius: sizes.$spacing-22;
     align-self: center;
     max-width: 12em;
     padding: sizes.$spacing-2 sizes.$spacing-4;
@@ -24,7 +26,6 @@
     }
 
     cursor: pointer;
-    will-change: filter;
     transition: filter 300ms;
 
     :hover {
@@ -43,3 +44,11 @@
                 colors.$navy-900 75%);
     }
 }
+
+.chip {
+    padding: sizes.$spacing-2 sizes.$spacing-4;
+    display: grid;
+    place-items: center;
+}
+
+

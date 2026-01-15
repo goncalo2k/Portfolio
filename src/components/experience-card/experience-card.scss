@@ -1,0 +1,13 @@
+@use "@goncalo2k/g2k-styles/breakpoints" as bps;
+
+.card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@include bps.tablet-down {
+    .card-header {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,67 @@
+@use "@goncalo2k/g2k-styles/colors" as colors;
+@use "@goncalo2k/g2k-styles/sizes" as sizes;
+
+@keyframes border-flow {
+    0% {
+        border-left-color: colors.$primary;
+        border-top-color: colors.$navy-800;
+        border-right-color: colors.$navy-800;
+        border-bottom-color: colors.$secondary;
+    }
+
+    25% {
+        border-left-color: colors.$primary;
+        border-top-color: colors.$primary;
+        border-right-color: colors.$navy-800;
+        border-bottom-color: colors.$navy-800;
+    }
+
+    50% {
+        border-left-color: colors.$primary;
+        border-top-color: colors.$primary;
+        border-right-color: colors.$secondary;
+        border-bottom-color: colors.$secondary;
+    }
+
+    75% {
+        border-left-color: colors.$navy-800;
+        border-top-color: colors.$primary;
+        border-right-color: colors.$secondary;
+        border-bottom-color: colors.$secondary;
+    }
+
+    100% {
+        border-left-color: colors.$primary;
+        border-top-color: colors.$navy-800;
+        border-right-color: colors.$navy-800;
+        border-bottom-color: colors.$secondary;
+    }
+}
+
+.card-container {
+    margin: sizes.$spacing-6;
+    border: sizes.$spacing-1_5 solid colors.$navy-800;
+    border-radius: sizes.$spacing-2;
+    align-self: center;
+    padding: sizes.$spacing-2 sizes.$spacing-4;
+
+    background-color: colors.$navy-850;
+    opacity: 85%;
+
+    &:hover {
+        transition: filter 200ms;
+        filter: drop-shadow(0 0 sizes.$spacing-2 colors.$secondary);
+        animation: border-flow 10s linear infinite;
+    }
+
+    :focus,
+    :focus-visible {
+        outline: sizes.$spacing-0 auto -webkit-focus-ring-color;
+    }
+
+    .text-content {
+        color: radial-gradient(circle at 50% 55%,
+                colors.$primary,
+                colors.$navy-900 75%);
+    }
+}

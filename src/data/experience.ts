@@ -1,0 +1,1 @@
+export const experienceEntries = [/* {name:' string', label: '', items: [], chips[], dateRange: string, gpa: string}, {} */]

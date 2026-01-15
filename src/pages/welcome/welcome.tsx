@@ -1,10 +1,12 @@
 import Button from '../../components/button/button';
 import Chip from '../../components/chip/chip';
 import './welcome.scss';
+import { FaCaretDown, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { HiOutlineMail } from 'react-icons/hi';
 
 export default function Welcome() {
     return (
-        <div className='welcome-container'>
+        <div id='home' className='welcome-container'>
             <Chip text='Welcome to my portfolio' />
             <h1 className='title name-label'>Gonçalo Miranda</h1>
             <span className='sub-title'>Software Engineer</span>
@@ -17,6 +19,21 @@ export default function Welcome() {
                 <Button textContent='View Education' />
                 <Button textContent='View Projects' />
             </div>
+
+            <div className='multi-chip-container'>
+                <Button type='chip' minSizeActive={false}>
+                    <FaGithub className='icon' />
+                </Button>
+                <Button type='chip' minSizeActive={false}>
+                    <FaLinkedin className='icon' />
+                </Button>
+                <Button type='chip' minSizeActive={false}>
+                    <HiOutlineMail className='icon' />
+                </Button>
+            </div>
+            <Button className="travel-link" type='chip' minSizeActive={false}>
+                <FaCaretDown className='icon' />
+            </Button>
         </div>
     );
 }

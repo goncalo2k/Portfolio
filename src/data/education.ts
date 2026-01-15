@@ -1,0 +1,1 @@
+export const educationEntries = [/* {name:' string', label: '', items: [], chips[], dateRange: string, gpa: string}, {} */]

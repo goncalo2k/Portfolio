@@ -5,3 +5,8 @@
 	text-align: center;
 	width: 100%;
 }
+.content-container {
+	display: flex;
+	flex-direction: column;
+	gap: sizes.$spacing-18;
+}
