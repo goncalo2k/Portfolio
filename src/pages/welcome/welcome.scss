@@ -1,5 +1,6 @@
 @use "@goncalo2k/g2k-styles/colors" as colors;
 @use "@goncalo2k/g2k-styles/sizes" as sizes;
+@use "@goncalo2k/g2k-styles/breakpoints" as bps;
 
 .welcome-container {
     display: flex;
@@ -46,5 +47,14 @@
         50% {
             transform: translateY(-6px);
         }
+    }
+}
+
+@include bps.tablet-down {
+    .multi-button-container {
+        flex-direction: column !important;
+        width: 100%;
+        padding: 0 sizes.$spacing-4;
+        box-sizing: border-box;
     }
 }

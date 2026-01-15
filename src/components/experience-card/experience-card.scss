@@ -4,7 +4,15 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    .experience-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
+
+
 
 @include bps.tablet-down {
     .card-header {

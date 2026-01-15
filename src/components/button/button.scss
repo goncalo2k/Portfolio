@@ -1,5 +1,6 @@
 @use "@goncalo2k/g2k-styles/colors" as colors;
 @use "@goncalo2k/g2k-styles/sizes" as sizes;
+@use "@goncalo2k/g2k-styles/breakpoints" as bps;
 
 .button-container {
     &.-min-width {
@@ -52,3 +53,15 @@
 }
 
 
+@include bps.tablet-down {
+    .button-container {
+        &:not(.chip) {
+            width: 100%;
+            max-width: unset !important;
+            padding-left: unset !important;
+            padding-right: unset !important;
+            margin-left: sizes.$spacing-2 !important;
+            margin-right: sizes.$spacing-2 !important;
+        }
+    }
+}

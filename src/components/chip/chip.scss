@@ -2,20 +2,15 @@
 @use "@goncalo2k/g2k-styles/sizes" as sizes;
 
 .chip-container {
-    max-width: 12em;
     align-self: center;
     border-radius: sizes.$spacing-12;
     border: 1px solid colors.$navy-800;
     padding: sizes.$spacing-2 sizes.$spacing-2;
     font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
     background-color: colors.$navy-850;
     opacity: 75%;
 
     padding: sizes.$spacing-2 sizes.$spacing-4;
-
-    animation: glow-pulse 5s ease infinite;
 
     .text-content {
         color: radial-gradient(circle at 50% 55%,
@@ -27,13 +22,27 @@
         cursor: default;
     }
 
+    &.light-text {
+        font-weight: 500;
+    }
+
+    &.fixed-width {
+        max-width: 12em;
+    }
+
+    &.animated {
+        animation: glow-pulse 5s ease infinite;
+    }
+
     cursor: pointer;
     will-change: filter;
     transition: filter 300ms;
 
-    :hover {
-        color: colors.$secondary;
-        filter: drop-shadow(0 0 sizes.$spacing-2 colors.$secondary);
+    &.hover-animation {
+        :hover {
+            color: colors.$secondary;
+            filter: drop-shadow(0 0 sizes.$spacing-2 colors.$secondary);
+        }
     }
 
     :focus,
