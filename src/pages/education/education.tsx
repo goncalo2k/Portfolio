@@ -8,7 +8,7 @@ type EducationProps = {
 export default function Education(props: EducationProps) {
     return (
         <>
-            <div id='projects' className='education-container'>
+            <div id='education' className='education-container'>
                 {props.children}
             </div>
         </>

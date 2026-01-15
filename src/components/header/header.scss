@@ -2,13 +2,9 @@
 @use "@goncalo2k/g2k-styles/colors" as colors;
 @use "@goncalo2k/g2k-styles/breakpoints" as bps;
 
-@include bps.mobile-wide-down {
-    .label {
-        display: none !important;
-    }
-}
-
 .header-container {
+    align-self: center;
+    width: fit-content;
     position: sticky;
     top: 20px;
     z-index: 99;
@@ -18,13 +14,103 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     gap: sizes.$spacing-4;
     border: 1px solid colors.$navy-800;
     border-radius: sizes.$spacing-4;
     background-color: colors.$navy-850;
     opacity: 75%;
 
+    .nav-items {
+        display: flex;
+        gap: sizes.$spacing-4;
+        align-items: center;
+    }
+
     .label {
         color: colors.$gray-200;
+        text-decoration: none;
+        transition: color 200ms;
+        display: flex;
+        align-items: center;
+        gap: sizes.$spacing-1;
+
+        &:hover {
+            color: colors.$primary;
+        }
+    }
+
+    .desktop-label {
+        display: block;
+    }
+
+    .mobile-label {
+        display: none;
+    }
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: colors.$navy-850;
+    border-bottom: 1px solid colors.$navy-800;
+    padding: sizes.$spacing-4;
+    z-index: 98;
+    animation: slideDown 300ms ease-out;
+
+    .mobile-menu-item {
+        display: flex;
+        align-items: center;
+        gap: sizes.$spacing-3;
+        color: colors.$gray-200;
+        text-decoration: none;
+        padding: sizes.$spacing-2 sizes.$spacing-3;
+        margin: sizes.$spacing-1 0;
+        border-radius: sizes.$spacing-2;
+        transition: background-color 200ms, color 200ms;
+
+        &:hover {
+            background-color: colors.$navy-700;
+            color: colors.$primary;
+        }
+
+        svg {
+            font-size: 1.1em;
+        }
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@include bps.mobile-wide-down {
+    .header-container {
+        padding: sizes.$spacing-2 sizes.$spacing-4;
+        align-items: center;
+
+
+        .nav-items {
+            gap: sizes.$spacing-3;
+        }
+
+        .desktop-label {
+            display: none;
+        }
+
+        .mobile-label {
+            display: block;
+        }
     }
 }
