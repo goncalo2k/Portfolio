@@ -23,19 +23,20 @@ export default function ExperienceCard({ experience, className }: ExperienceCard
                 </div>
             </div>
             <div className='card-content'>
-                <p className='description'>{experience.description}</p>
-                <div className='responsibilities'>
-                    <h5>Responsibilities:</h5>
-                    <ul>
+                <div className='description'>
+                    <span>Responsibilities:</span>
+                    <ul className='responsibility-list'>
                         {experience.responsibilities.map((responsibility, index) => (
                             <li key={index}>{responsibility}</li>
                         ))}
                     </ul>
                 </div>
                 {experience.technologies && experience.technologies.length > 0 && (
-                    <div className='technologies'>
-                        <h5>Technologies:</h5>
-                        <p>{experience.technologies.join(', ')}</p>
+                    <div className='technology-container'>
+                        <span>Technologies:</span>
+                        <div className='technology-list'>
+                            {experience.technologies.map((experience) => <Chip text={experience} />)}
+                        </div>
                     </div>
                 )}
             </div>

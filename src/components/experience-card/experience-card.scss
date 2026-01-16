@@ -1,9 +1,11 @@
+@use "@goncalo2k/g2k-styles/sizes" as sizes;
 @use "@goncalo2k/g2k-styles/breakpoints" as bps;
 
 .card-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    gap: sizes.$spacing-2;
 
     .experience-info {
         display: flex;
@@ -12,10 +14,35 @@
     }
 }
 
+.card-content {
+    .description {
+        text-align: left;
+
+        .responsibility-list {
+            padding-left: sizes.$spacing-4;
+        }
+
+    }
+
+    .technology-container {
+        text-align: left;
+        gap: sizes.$spacing-2;
+        .technology-list {
+            display: flex;
+            flex-direction: row;
+            gap: sizes.$spacing-2;
+        }
+    }
+}
+
 
 
 @include bps.tablet-down {
     .card-header {
         flex-direction: column;
+    }
+
+    .technology-list {
+        flex-wrap: wrap-reverse;
     }
 }
