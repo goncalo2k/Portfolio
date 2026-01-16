@@ -1,6 +1,5 @@
 import './header.scss';
-import { useState } from 'react';
-import { FaHome, FaBriefcase, FaGraduationCap, FaCode, FaEnvelope, FaBars, FaTimes } from 'react-icons/fa';
+import { FaHome, FaBriefcase, FaGraduationCap, FaCode, FaEnvelope } from 'react-icons/fa';
 
 type HeaderProps = {
     children?: React.ReactNode;
