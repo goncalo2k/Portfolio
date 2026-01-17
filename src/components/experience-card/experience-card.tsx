@@ -38,7 +38,7 @@ export default function ExperienceCard({ experience, className }: ExperienceCard
                     <div className='technology-container'>
                         <span>Technologies:</span>
                         <div className='technology-list'>
-                            {experience.technologies.map((experience) => <Chip text={experience} />)}
+                            {experience.technologies.map((experience, index) => <Chip key={index} text={experience} />)}
                         </div>
                     </div>
                 )}

@@ -7,6 +7,7 @@
     flex-direction: column;
     gap: sizes.$spacing-12;
     align-items: center;
+    min-height: 100svh;
 
     .name-label {
         background: radial-gradient(circle at 50% 55%,
@@ -31,15 +32,14 @@
         gap: sizes.$spacing-4;
         align-self: center;
     }
-
-    
 }
 
 @include bps.tablet-down {
     .multi-button-container {
-        flex-direction: column !important;
+        /* flex-direction: column !important;
         width: 100%;
         padding: 0 sizes.$spacing-4;
-        box-sizing: border-box;
+        box-sizing: border-box; */
+        display: none !important;
     }
 }
