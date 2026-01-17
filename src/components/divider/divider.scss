@@ -1,0 +1,7 @@
+@use "@goncalo2k/g2k-styles/colors" as colors;
+@use "@goncalo2k/g2k-styles/sizes" as sizes;
+
+.divider {
+    width: 100%;
+    border: 0.5px solid colors.$navy-800;
+}

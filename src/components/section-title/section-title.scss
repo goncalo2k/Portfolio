@@ -1,0 +1,19 @@
+@use "@goncalo2k/g2k-styles/colors" as colors;
+@use "@goncalo2k/g2k-styles/sizes" as sizes;
+
+.section-title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: sizes.$spacing-4;
+    margin-bottom: sizes.$spacing-8;
+
+    .section-title-icon {
+        width: sizes.$spacing-14;
+        height: sizes.$spacing-14;
+    }
+}
+
+.section-title {
+    font-size: sizes.$spacing-14;
+}

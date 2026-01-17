@@ -11,12 +11,15 @@ export const experienceData: Experience[] = [
         location: 'Lisbon, Portugal',
         description: 'Developing cutting edge, innovative solutions for the banking and insurance industries',
         responsibilities: [
-            'Responsible for developing cutting edge, innovative solutions for the banking and insurance industries, while also using frameworks such as Angular and React for frontend development and Java Spring Boot and Node.JS for backend solutions, while also utilizing event driven frameworks such as Kafka and relational databases.',
+            'Responsible for developing cutting edge, innovative solutions for the banking and insurance industries, while also using frameworks such as Angular and React for frontend development and Java Spring Boot and Node.JS for backend solutions, while also utilizing event driven frameworks such as Kafka and relational databases, such as PostgresSQL.',
             'Responsible for managing the Frontend team for certain periods of time.',
             'Responsible for mentoring entry-level team members and fostering their growth, while helping management to oversee the project\'s backlog.',
-            'Responsible for client interaction and requirement gathering.'
+            'Responsible for client interaction and requirement gathering.',
+            'Responsible for leading projects in coordination with business analysts from inception to final delivery and maintenance.',
+            'Responsible for refactoring legacy architectures into re-usable, updated software pieces.',
+            'Certified as an AWS Cloud Practicioner.'
         ],
-        technologies: ['Angular', 'React', 'Java Spring Boot', 'Node.JS', 'Kafka', 'Relational Databases']
+        technologies: ['Angular', 'React', 'Typescript', 'Javascript', 'Java Spring Boot', 'Node.js', 'NestJS', 'Kafka', 'MongoDB', 'PostgresSQL', 'AWS DynamoDB', 'Jest', 'Playwright']
     },
     {
         id: 'exp-2',
@@ -32,7 +35,7 @@ export const experienceData: Experience[] = [
             'Responsible for the development of integrations with external services, such as Salesforce.',
             'Responsible for the database migration of the project, and for the technology shift performed regarding the databases.'
         ],
-        technologies: ['Flutter', 'Node.JS', 'DynamoDB', 'MongoDB', 'Salesforce']
+        technologies: ['Flutter', 'Typescript', 'Javascript', 'Node.js', 'AWS DynamoDB', 'MongoDB', 'Salesforce']
     },
     {
         id: 'exp-3',

@@ -3,6 +3,7 @@ import Card from '../card/card';
 import type { Experience } from '../../types/experience';
 import './experience-card.scss';
 import Chip from '../chip/chip';
+import Divider from '../divider/divider';
 
 type ExperienceCardProps = {
     experience: Experience;
@@ -15,13 +16,15 @@ export default function ExperienceCard({ experience, className }: ExperienceCard
             <div className='card-header'>
                 <div className='experience-info'>
                     <span className='position-title'>{experience.position}</span>
-                    <span className='company-name-location'>{experience.company} - {experience.location}</span>
+                    <span className='company-name'>{experience.company}</span>
                 </div>
-                <div className='duration-info'>
+                <div className='duration-location-info'>
                     <Chip text={`${experience.startDate} - ${experience.endDate}`} isLightText={false} isWidthCapped={false}
-                        hasHover={false} isAnimated={false}></Chip>
+                        hasHover={false} isAnimated={false} isDateIndicator={true}></Chip>
+                    <span className='company-location'>{experience.location}</span>
                 </div>
             </div>
+            <Divider />
             <div className='card-content'>
                 <div className='description'>
                     <span>Responsibilities:</span>

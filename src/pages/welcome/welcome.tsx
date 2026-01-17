@@ -22,13 +22,13 @@ export default function Welcome() {
                 </div>
 
                 <div className='multi-chip-container'>
-                    <Button type='chip' minSizeActive={false}>
+                    <Button type='chip' minSizeActive={false} href='https://github.com/goncalo2k'>
                         <FaGithub className='icon' />
                     </Button>
-                    <Button type='chip' minSizeActive={false}>
+                    <Button type='chip' minSizeActive={false} href='https://www.linkedin.com/in/goncalogmiranda/'>
                         <FaLinkedin className='icon' />
                     </Button>
-                    <Button type='chip' minSizeActive={false}>
+                    <Button type='chip' minSizeActive={false} href='mailto:goncalo.miranda.cplx@gmail.com'>
                         <HiOutlineMail className='icon' />
                     </Button>
                 </div>
