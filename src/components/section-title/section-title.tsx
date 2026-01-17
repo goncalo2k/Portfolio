@@ -1,5 +1,3 @@
-import { HiOutlineMail } from 'react-icons/hi';
-import Chip from '../chip/chip';
 import './section-title.scss';
 import Button from '../button/button';
 

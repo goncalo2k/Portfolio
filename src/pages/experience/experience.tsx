@@ -1,4 +1,3 @@
-import { FaBriefcase } from 'react-icons/fa';
 import ExperienceCard from '../../components/experience-card/experience-card';
 import { experienceData } from '../../data/experience';
 import './experience.scss';
@@ -15,7 +14,7 @@ export default function Experience(props: ExperienceProps) {
         <>
             <div id='experience' className='experience-container'>
                 <SectionTitle title="Experience" icon={LuBriefcase} />
-                {experienceData.map((experience) => (
+                {experienceData.length > 0 && experienceData.map((experience) => (
                     <ExperienceCard key={experience.id} experience={experience} />
                 ))}
                 {props.children}

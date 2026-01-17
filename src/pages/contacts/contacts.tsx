@@ -9,11 +9,9 @@ type ContactsProps = {
 
 export default function Contacts(props: ContactsProps) {
     return (
-        <>
-            <div id='contacts' className='contacts-container'>
-                <SectionTitle title="Contacts" icon={FaEnvelope} />
-                {props.children}
-            </div>
-        </>
+        false && <div id='contacts' className='contacts-container'>
+            <SectionTitle title="Contacts" icon={FaEnvelope} />
+            {props.children}
+        </div>
     );
 }
