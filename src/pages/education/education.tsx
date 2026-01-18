@@ -15,11 +15,9 @@ export default function Education(props: EducationProps) {
         <div id='education' className='education-container'>
             <SectionTitle title="Education" icon={FaGraduationCap} />
             <div className='education-entry-list-container'>
-                <Card>
-                    {educationData.length > 0 && educationData.map((education) => (
-                        <EducationCard className='education-card' key={education.id} education={education} />
-                    ))}
-                </Card>
+                {educationData.length > 0 && educationData.map((education) => (
+                    <EducationCard className='education-card' key={education.id} education={education} />
+                ))}
             </div>
             {props.children}
         </div >

@@ -3,46 +3,25 @@
 @use "@goncalo2k/g2k-styles/breakpoints" as bps;
 
 .contact-card {
-    .card-header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        gap: sizes.$spacing-2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: sizes.$spacing-3;
 
-        .contact-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            border-radius: sizes.$spacing-2;
-            background: colors.$primary;
-            color: colors.$white;
-            font-size: sizes.$spacing-5;
-            flex-shrink: 0;
-        }
-
+    .card-content-container {
         .contact-info {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            gap: 0.5em;
-            justify-content: space-between;
-            flex: 1;
-        }
 
-        .contact-label {
-            text-align: left;
-            font-size: sizes.$spacing-6;
-            margin: 0;
-        }
+            .contact-value {
+                /* color: colors.$primary; */
+                text-decoration: none;
 
-        .contact-value {
-            font-size: sizes.$spacing-5;
+                /* &:hover {
+                    color: colors.$secondary;
+                } */
+            }
         }
-    }
-
-    .card-content {
-        text-align: left;
     }
 }

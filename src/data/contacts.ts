@@ -5,8 +5,7 @@ export const contactsData: Contact[] = [
         id: 'contact-1',
         type: 'email',
         label: 'Email',
-        value: 'goncalo.miranda.importante@gmail.com',
-        url: 'mailto:goncalo.miranda.importante@gmail.com'
+        value: 'goncalo.miranda.cplx@gmail.com',
     },
     {
         id: 'contact-2',
@@ -16,16 +15,8 @@ export const contactsData: Contact[] = [
     },
     {
         id: 'contact-3',
-        type: 'linkedin',
-        label: 'LinkedIn',
-        value: 'in/goncalogmiranda/',
-        url: 'https://www.linkedin.com/in/goncalogmiranda/'
+        type: 'location',
+        label: 'Location',
+        value: 'Lisbon, Portugal'
     },
-    {
-        id: 'contact-4',
-        type: 'github',
-        label: 'GitHub',
-        value: 'github.com/goncalo2k',
-        url: 'https://github.com/goncalo2k'
-    }
 ];

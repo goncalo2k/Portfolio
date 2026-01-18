@@ -31,7 +31,7 @@ export const projectsData: Project[] = [
         codeUrl: "https://github.com/goncalo2k/g2k-styles",
         image: LiaBrushSolid,
         description:
-            "G2K-Styles is my small Sass library, published to NPM, used to swiften my projects. ",
-        technologies: ['Cloudflare Workers', 'React', 'Vite', 'Sass', 'Spotify API']
+            "G2K-Styles is my small Sass package, published to NPM, used to swiften my projects. ",
+        technologies: ['Sass']
     },
 ];

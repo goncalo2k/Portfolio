@@ -12,8 +12,18 @@
         width: sizes.$spacing-14;
         height: sizes.$spacing-14;
     }
-}
 
-.section-title {
-    font-size: sizes.$spacing-14;
+    .title-text-container {
+        display: flex;
+        flex-direction: column;
+
+        .section-title {
+            font-size: sizes.$spacing-14;
+        }
+
+        .section-sub-title {
+            padding: 0.5rem 1.5rem;
+            margin: 0 3rem;
+        }
+    }
 }
