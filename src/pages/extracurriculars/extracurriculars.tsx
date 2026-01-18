@@ -11,14 +11,12 @@ type ExtracurricularsProps = {
 
 export default function Extracurriculars(props: ExtracurricularsProps) {
     return (
-        <>
-            <div id='extracurriculars' className='extracurriculars-container'>
-                <SectionTitle title="Extracurriculars" icon={LuBriefcase} />
-                {extraCurricularsData.length > 0 && extraCurricularsData.map((experience) => (
-                    <ExperienceCard key={experience.id} experience={experience} />
-                ))}
-                {props.children}
-            </div>
-        </>
+        <div id='extracurriculars' className='extracurriculars-container'>
+            <SectionTitle title="Extracurriculars" icon={LuBriefcase} />
+            {extraCurricularsData.length > 0 && extraCurricularsData.map((experience) => (
+                <ExperienceCard key={experience.id} experience={experience} />
+            ))}
+            {props.children}
+        </div>
     );
 }
