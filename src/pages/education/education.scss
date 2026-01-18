@@ -1,6 +1,22 @@
+@use "@goncalo2k/g2k-styles/breakpoints" as bps;
 @use "@goncalo2k/g2k-styles/sizes" as sizes;
 
-.education-entry-list-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+.education-container {
+    margin: 0 sizes.$spacing-8;
+
+    .education-entry-list-container {
+        display: flex;
+        flex-direction: row;
+
+        .education-card {
+            flex: 1;
+        }
+    }
+}
+
+@include bps.tablet-down {
+    .education-entry-list-container {
+        flex-direction: column !important;
+        gap: sizes.$spacing-4;
+    }
 }

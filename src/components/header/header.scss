@@ -3,8 +3,10 @@
 @use "@goncalo2k/g2k-styles/breakpoints" as bps;
 
 .header-container {
-    align-self: center;
     width: fit-content;
+    max-width: calc(100vw - 48px);
+    min-width: 20vh;
+    align-self: center;
     position: sticky;
     top: 20px;
     z-index: 99;
@@ -20,7 +22,6 @@
     border-radius: sizes.$spacing-4;
     background-color: colors.$navy-850;
     opacity: 75%;
-    min-width: 20vh;
 
     .nav-items {
         display: flex;
@@ -100,7 +101,7 @@
     }
 }
 
-@include bps.mobile-wide-down {
+@media (max-width: 600px) {
     .header-container {
         padding: sizes.$spacing-2 sizes.$spacing-4;
         align-items: center;

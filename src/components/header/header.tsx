@@ -33,8 +33,8 @@ export default function Header(props: HeaderProps) {
                 });
             },
             {
-                rootMargin: '-80px 0px -30% 0px',
-                threshold: 0.1
+                rootMargin: '-80px 0px -40% 0px',
+                threshold: 0.15
             }
         );
 

@@ -15,7 +15,7 @@ export default function Projects(props: ProjectsProps) {
             <SectionTitle title="Projects" icon={FaCode} />
             <div className='projects-grid'>
                 {projectsData.length > 0 && projectsData.map((project) => (
-                    <ProjectCard key={project.id} project={project} />
+                    <ProjectCard className='project-card' key={project.id} project={project} />
                 ))}
             </div>
             {props.children}

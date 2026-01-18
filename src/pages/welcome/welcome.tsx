@@ -15,11 +15,11 @@ export default function Welcome() {
                 technologies. Passionate about clean code, intuitive design, and solving
                 complex problems.</span>
             <div className='multi-button-container'>
-                <Button textContent='Get in touch' onClick={() => scrollToId('contacts')} />
-                <Button textContent='View Experience' onClick={() => scrollToId('experience')} />
-                <Button textContent='View Education' onClick={() => scrollToId('education')} />
-                <Button textContent='View Extracurriculars' onClick={() => scrollToId('extracurriculars')} />
-                <Button textContent='View Projects' onClick={() => scrollToId('projects')} />
+                <Button minSizeActive={false} textContent='Get in touch' onClick={() => scrollToId('contacts')} />
+                <Button minSizeActive={false} textContent='View Experience' onClick={() => scrollToId('experience')} />
+                <Button minSizeActive={false} textContent='View Education' onClick={() => scrollToId('education')} />
+                <Button minSizeActive={false} textContent='View Extracurriculars' onClick={() => scrollToId('extracurriculars')} />
+                <Button minSizeActive={false} textContent='View Projects' onClick={() => scrollToId('projects')} />
             </div>
 
             <div className='multi-chip-container'>

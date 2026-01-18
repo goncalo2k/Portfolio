@@ -3,18 +3,21 @@
 @use "@goncalo2k/g2k-styles/breakpoints" as bps;
 
 .projects-container {
+    margin: 0 sizes.$spacing-8;
+    max-width: calc(100vw - 64px);
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+
     .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: sizes.$spacing-6;
-        margin-top: sizes.$spacing-8;
+        align-self: center;
     }
 }
 
 @include bps.tablet-down {
     .projects-container {
         .projects-grid {
-            grid-template-columns: 1fr;
+            flex-direction: column;
             gap: sizes.$spacing-4;
         }
     }

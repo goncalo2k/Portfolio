@@ -3,19 +3,30 @@
 @use "@goncalo2k/g2k-styles/breakpoints" as bps;
 
 .contacts-container {
+    margin: 0 sizes.$spacing-8;
+
     .contacts-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        display: flex;
+        flex-direction: row;
         gap: sizes.$spacing-6;
         margin-top: sizes.$spacing-8;
+        justify-content: center;
+
+        .contact-card {
+            flex: 1;
+        }
     }
 }
 
 @include bps.tablet-down {
     .contacts-container {
         .contacts-grid {
-            grid-template-columns: 1fr;
+            flex-direction: column;
             gap: sizes.$spacing-4;
+
+            .contact-card {
+                align-self: stretch;
+            }
         }
     }
 }

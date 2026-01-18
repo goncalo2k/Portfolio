@@ -3,6 +3,7 @@
 @use "@goncalo2k/g2k-styles/breakpoints" as bps;
 
 .card-container {
+    width: 100%;
     margin: sizes.$spacing-6;
     border: sizes.$spacing-1_5 solid colors.$navy-800;
     border-radius: sizes.$spacing-8;
@@ -11,7 +12,7 @@
     display: flex;
     flex-direction: column;
     gap: sizes.$spacing-1;
-
+    max-width: 800px;
     background-color: colors.$navy-850;
     opacity: 85%;
 
@@ -29,5 +30,11 @@
         color: radial-gradient(circle at 50% 55%,
                 colors.$primary,
                 colors.$navy-900 75%);
+    }
+}
+
+@include bps.tablet-down {
+    .card-container {
+        width: unset;
     }
 }

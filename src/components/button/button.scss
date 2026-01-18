@@ -52,17 +52,13 @@
     place-items: center;
 }
 
-.section-chip {
-    // Same visual appearance as travel-link but without animation
-    // Inherits all chip styling automatically from .chip class
-}
-
 .travel-link {
     animation: chip-bounce 1.8s ease-in-out infinite !important;
     will-change: transform;
 }
 
 @keyframes chip-bounce {
+
     0%,
     100% {
         transform: translateY(0);
