@@ -3,8 +3,6 @@ import './education.scss';
 import SectionTitle from '../../components/section-title/section-title';
 import { educationData } from '../../data/education';
 import EducationCard from '../../components/education-card/education-card';
-import Card from '../../components/card/card';
-
 
 type EducationProps = {
     children?: React.ReactNode;
