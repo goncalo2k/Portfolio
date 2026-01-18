@@ -7,7 +7,9 @@
     flex-direction: column;
     gap: sizes.$spacing-12;
     align-items: center;
-    min-height: 85vh;
+    min-height: 95vh;
+
+    margin-top: sizes.$spacing-4;
 
     .name-label {
         background: radial-gradient(circle at 50% 55%,

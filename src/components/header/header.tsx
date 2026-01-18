@@ -54,24 +54,22 @@ export default function Header(props: HeaderProps) {
     }, []);
 
     return (
-        <>
-            <div className='header-container'>
-                <div className='nav-items'>
-                    {navItems.map((item) => (
-                        <div
-                            key={item.label}
-                            className={`label link ${activeSection === item.href ? 'active' : ''}`}
-                            onClick={() => scrollToId(item.href)}
-                        >
-                            <span className='desktop-label'>{item.label}</span>
-                            <span className='mobile-label'>
-                                <item.icon />
-                            </span>
-                        </div>
-                    ))}
-                </div>
-                {props.children}
+        activeSection !== 'home' && <div className='header-container'>
+            <div className='nav-items'>
+                {navItems.map((item) => (
+                    <div
+                        key={item.label}
+                        className={`label link ${activeSection === item.href ? 'active' : ''}`}
+                        onClick={() => scrollToId(item.href)}
+                    >
+                        <span className='desktop-label'>{item.label}</span>
+                        <span className='mobile-label'>
+                            <item.icon />
+                        </span>
+                    </div>
+                ))}
             </div>
-        </>
+            {props.children}
+        </div>
     );
 }

@@ -10,6 +10,8 @@
     flex-direction: column;
 
     .projects-grid {
+        display: flex;
+        flex-direction: row;
         align-self: center;
     }
 }
