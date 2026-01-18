@@ -1,5 +1,6 @@
 @use "@goncalo2k/g2k-styles/colors" as colors;
 @use "@goncalo2k/g2k-styles/sizes" as sizes;
+@use "@goncalo2k/g2k-styles/breakpoints" as bps;
 
 @keyframes border-flow {
     0% {

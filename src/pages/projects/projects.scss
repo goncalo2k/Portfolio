@@ -1,0 +1,21 @@
+@use "@goncalo2k/g2k-styles/colors" as colors;
+@use "@goncalo2k/g2k-styles/sizes" as sizes;
+@use "@goncalo2k/g2k-styles/breakpoints" as bps;
+
+.projects-container {
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: sizes.$spacing-6;
+        margin-top: sizes.$spacing-8;
+    }
+}
+
+@include bps.tablet-down {
+    .projects-container {
+        .projects-grid {
+            grid-template-columns: 1fr;
+            gap: sizes.$spacing-4;
+        }
+    }
+}

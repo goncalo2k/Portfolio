@@ -6,6 +6,7 @@
 	text-align: center;
 	width: 100%;
 }
+
 .content-container {
 	display: flex;
 	flex-direction: column;
@@ -14,6 +15,6 @@
 
 @include bps.tablet-down {
 	.content-container {
-		gap: sizes.$spacing-4;
+		gap: sizes.$spacing-10;
 	}
 }

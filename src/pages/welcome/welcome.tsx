@@ -1,5 +1,6 @@
 import Button from '../../components/button/button';
 import Chip from '../../components/chip/chip';
+import { scrollToId } from '../../utils/utils';
 import './welcome.scss';
 import { FaCaretDown, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { HiOutlineMail } from 'react-icons/hi';
@@ -14,10 +15,11 @@ export default function Welcome() {
                 technologies. Passionate about clean code, intuitive design, and solving
                 complex problems.</span>
             <div className='multi-button-container'>
-                <Button textContent='Get in touch' />
-                <Button textContent='View Experience' />
-                <Button textContent='View Education' />
-                <Button textContent='View Projects' />
+                <Button textContent='Get in touch' onClick={() => scrollToId('contacts')} />
+                <Button textContent='View Experience' onClick={() => scrollToId('experience')} />
+                <Button textContent='View Education' onClick={() => scrollToId('education')} />
+                <Button textContent='View Extracurriculars' onClick={() => scrollToId('extracurriculars')} />
+                <Button textContent='View Projects' onClick={() => scrollToId('projects')} />
             </div>
 
             <div className='multi-chip-container'>
@@ -31,9 +33,12 @@ export default function Welcome() {
                     <HiOutlineMail className='icon' />
                 </Button>
             </div>
-            <Button className="travel-link" type='chip' minSizeActive={false}>
-                <FaCaretDown className='icon' />
-            </Button>
+            <div className='bottom-container'>
+                <Button className="travel-link" type='chip' minSizeActive={false} onClick={() => scrollToId('experience')}>
+                    <FaCaretDown className='icon' />
+                </Button>
+            </div>
+
         </div>
     );
 }

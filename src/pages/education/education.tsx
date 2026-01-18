@@ -2,6 +2,8 @@ import { FaGraduationCap } from 'react-icons/fa';
 import './education.scss';
 import SectionTitle from '../../components/section-title/section-title';
 import { educationData } from '../../data/education';
+import EducationCard from '../../components/education-card/education-card';
+import Card from '../../components/card/card';
 
 
 type EducationProps = {
@@ -10,9 +12,16 @@ type EducationProps = {
 
 export default function Education(props: EducationProps) {
     return (
-        educationData.length > 0 && <div id='education' className='education-container'>
+        <div id='education' className='education-container'>
             <SectionTitle title="Education" icon={FaGraduationCap} />
+            <div className='education-entry-list-container'>
+                <Card>
+                    {educationData.length > 0 && educationData.map((education) => (
+                        <EducationCard className='education-card' key={education.id} education={education} />
+                    ))}
+                </Card>
+            </div>
             {props.children}
-        </div>
+        </div >
     );
 }

@@ -11,7 +11,7 @@ export const experienceData: Experience[] = [
         location: 'Lisbon, Portugal',
         description: 'Developing cutting edge, innovative solutions for the banking and insurance industries',
         responsibilities: [
-            'Responsible for developing cutting edge, innovative solutions for the banking and insurance industries, while also using frameworks such as Angular and React for frontend development and Java Spring Boot and Node.JS for backend solutions, while also utilizing event driven frameworks such as Kafka and relational databases, such as PostgresSQL.',
+            'Responsible for developing cutting edge, innovative solutions for the banking and insurance industries, while also using frameworks such as Angular and React for frontend development and Java Spring Boot and Node.JS for backend solutions, while also utilizing event driven frameworks such as Kafka and relational databases, such as PostgreSQL.',
             'Responsible for managing the Frontend team for certain periods of time.',
             'Responsible for mentoring entry-level team members and fostering their growth, while helping management to oversee the project\'s backlog.',
             'Responsible for client interaction and requirement gathering.',
@@ -19,7 +19,7 @@ export const experienceData: Experience[] = [
             'Responsible for refactoring legacy architectures into re-usable, updated software pieces.',
             'Certified as an AWS Cloud Practicioner.'
         ],
-        technologies: ['Angular', 'React', 'Typescript', 'Javascript', 'Java Spring Boot', 'Node.js', 'NestJS', 'Kafka', 'MongoDB', 'PostgresSQL', 'AWS DynamoDB', 'Jest', 'Playwright']
+        technologies: ['Angular', 'React', 'Typescript', 'Javascript', 'Java Spring Boot', 'Node.js', 'NestJS', 'Kafka', 'MongoDB', 'PostgreSQL', 'AWS DynamoDB', 'Jest', 'Playwright']
     },
     {
         id: 'exp-2',

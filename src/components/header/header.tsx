@@ -12,6 +12,7 @@ export default function Header(props: HeaderProps) {
         { label: 'Experience', icon: FaBriefcase, href: 'experience' },
         { label: 'Education', icon: FaGraduationCap, href: 'education' },
         { label: 'Projects', icon: FaCode, href: 'projects' },
+        { label: 'Extracurriculars', icon: FaGraduationCap, href: 'extracurriculars' },
         { label: 'Contacts', icon: FaEnvelope, href: 'contacts' }
     ];
 

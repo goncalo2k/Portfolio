@@ -1,7 +1,7 @@
 import type { Education } from '../types/education';
 
 export const educationData: Education[] = [
-/*     {
+    {
         id: 'edu-1',
         institution: 'ISCTE-IUL',
         degree: "Master's in Informatics and Management",
@@ -18,5 +18,5 @@ export const educationData: Education[] = [
         startDate: '2021',
         endDate: '2024',
         location: 'Porto, Portugal'
-    } */
+    }
 ];

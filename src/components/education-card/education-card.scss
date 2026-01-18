@@ -1,0 +1,59 @@
+@use "@goncalo2k/g2k-styles/sizes" as sizes;
+@use "@goncalo2k/g2k-styles/breakpoints" as bps;
+
+.education-card {
+    align-self: stretch;
+    .card-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: sizes.$spacing-2;
+
+        .degree-title {
+            text-align: left;
+            font-size: sizes.$spacing-6;
+        }
+
+        .education-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5em;
+            justify-content: space-between;
+        }
+
+        .duration-location-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5em;
+            justify-content: space-between;
+        }
+
+        .institution-name,
+        .institution-location {
+            font-size: sizes.$spacing-5;
+        }
+    }
+
+    .card-content {
+
+        .field-info,
+        .gpa-info {
+            text-align: left;
+            display: flex;
+            gap: sizes.$spacing-2;
+        }
+
+        .achievements-info {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: sizes.$spacing-2;
+
+            .achievement-list {
+                padding-left: sizes.$spacing-4;
+            }
+        }
+    }
+}

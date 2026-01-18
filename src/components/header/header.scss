@@ -20,7 +20,7 @@
     border-radius: sizes.$spacing-4;
     background-color: colors.$navy-850;
     opacity: 75%;
-
+    min-width: 20vh;
     .nav-items {
         display: flex;
         gap: sizes.$spacing-4;

@@ -1,8 +1,8 @@
 import ExperienceCard from '../../components/experience-card/experience-card';
-import { experienceData } from '../../data/experience';
 import './experience.scss';
 import SectionTitle from '../../components/section-title/section-title';
 import { LuBriefcase } from 'react-icons/lu';
+import { experienceData } from '../../data/experience';
 
 
 type ExperienceProps = {

@@ -1,0 +1,48 @@
+@use "@goncalo2k/g2k-styles/colors" as colors;
+@use "@goncalo2k/g2k-styles/sizes" as sizes;
+@use "@goncalo2k/g2k-styles/breakpoints" as bps;
+
+.contact-card {
+    .card-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: sizes.$spacing-2;
+
+        .contact-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: sizes.$spacing-2;
+            background: colors.$primary;
+            color: colors.$white;
+            font-size: sizes.$spacing-5;
+            flex-shrink: 0;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5em;
+            justify-content: space-between;
+            flex: 1;
+        }
+
+        .contact-label {
+            text-align: left;
+            font-size: sizes.$spacing-6;
+            margin: 0;
+        }
+
+        .contact-value {
+            font-size: sizes.$spacing-5;
+        }
+    }
+
+    .card-content {
+        text-align: left;
+    }
+}
