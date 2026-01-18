@@ -14,12 +14,15 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
         <Card className={`project-card ${className}`}>
             <div className='card-header'>
                 <div className='project-image'>
-                    <img src={project.imageUrl} alt={project.name} />
+                    {project.image && <project.image className='project-icon'/>}
                 </div>
                 <div className='project-info'>
                     <h3 className='project-title'>{project.name}</h3>
-                    <a href={project.link} className='project-link' target='_blank' rel='noopener noreferrer'>
+                    <a href={project.url} className='project-link' target='_blank' rel='noopener noreferrer'>
                         View Project
+                    </a>
+                    <a href={project.codeUrl} className='project-link' target='_blank' rel='noopener noreferrer'>
+                        View Code
                     </a>
                 </div>
             </div>
