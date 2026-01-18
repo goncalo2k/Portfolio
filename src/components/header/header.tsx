@@ -1,7 +1,8 @@
 import { scrollToId } from '../../utils/utils';
 import './header.scss';
-import { FaHome, FaBriefcase, FaGraduationCap, FaCode, FaEnvelope } from 'react-icons/fa';
+import { FaHome, FaBriefcase, FaGraduationCap, FaCode } from 'react-icons/fa';
 import { useState, useEffect, useRef } from 'react';
+import { IoIosSend } from 'react-icons/io';
 
 type HeaderProps = {
     children?: React.ReactNode;
@@ -17,12 +18,12 @@ export default function Header(props: HeaderProps) {
         { label: 'Education', icon: FaGraduationCap, href: 'education' },
         { label: 'Projects', icon: FaCode, href: 'projects' },
         { label: 'Extracurriculars', icon: FaGraduationCap, href: 'extracurriculars' },
-        { label: 'Contacts', icon: FaEnvelope, href: 'contacts' }
+        { label: 'Contacts', icon: IoIosSend, href: 'contacts' }
     ];
 
     useEffect(() => {
         const sections = navItems.map(item => document.getElementById(item.href));
-        
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach(entry => {
@@ -32,7 +33,7 @@ export default function Header(props: HeaderProps) {
                 });
             },
             {
-                rootMargin: '-80px 0px -50% 0px',
+                rootMargin: '-80px 0px -30% 0px',
                 threshold: 0.1
             }
         );
@@ -57,10 +58,10 @@ export default function Header(props: HeaderProps) {
             <div className='header-container'>
                 <div className='nav-items'>
                     {navItems.map((item) => (
-                        <div 
-                            key={item.label} 
-                            className={`label link ${activeSection === item.href ? 'active' : ''}`} 
-                            onClick={() => scrollToId(item.href)} 
+                        <div
+                            key={item.label}
+                            className={`label link ${activeSection === item.href ? 'active' : ''}`}
+                            onClick={() => scrollToId(item.href)}
                         >
                             <span className='desktop-label'>{item.label}</span>
                             <span className='mobile-label'>
