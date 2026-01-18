@@ -12,7 +12,7 @@ export const projectsData: Project[] = [
         image: LuGithub,
         description:
             "GitDash is a GitHub analytics dashboard that summarizes repository activity and contributor stats.",
-        technologies: ['Next.js', 'NestJS', 'Redis', 'Github API', 'JWT-based Authentication', 'Cloudflare Workers']
+        technologies: ['Next.js', 'NestJS', 'Redis', 'Github API', 'JWT-based Authentication', 'Cloudflare Workers', 'Render']
     },
     {
         id: "portofolio",
