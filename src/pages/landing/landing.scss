@@ -1,0 +1,14 @@
+.landing-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #07070a;
+    transition: opacity 60ms linear;
+    will-change: opacity;
+
+    &.done {
+        transition: opacity 450ms ease;
+    }
+
+    pointer-events: none;
+}
