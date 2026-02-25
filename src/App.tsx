@@ -6,7 +6,6 @@ import Education from './pages/education/education'
 import Experience from './pages/experience/experience'
 import Extracurriculars from './pages/extracurriculars/extracurriculars'
 import LandingIntro from './pages/landing/landing'
-import Landing from './pages/landing/landing'
 import Projects from './pages/projects/projects'
 import Welcome from './pages/welcome/welcome'
 
