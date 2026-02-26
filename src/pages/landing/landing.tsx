@@ -276,9 +276,9 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
         <group ref={group}>{cameraModel && <primitive object={cameraModel} />}</group>
       </group>
 
-      <ambientLight intensity={0.6} />
-      <directionalLight position={[2, 2, 2]} intensity={1.2} />
-      <Environment preset="city" />
+      <ambientLight color="#2a1a14" intensity={0.32} />
+      <directionalLight color="#ffd9a6" position={[1.8, 2.5, 1]} intensity={0.7} />
+      <Environment preset="sunset" />
 
       {/* flash plane close to the camera */}
       <mesh

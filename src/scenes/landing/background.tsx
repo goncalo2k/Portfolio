@@ -8,6 +8,8 @@ import { StudioWindow } from "../../models/studio-window";
 import { StudioBlinds } from "../../models/studio-blinds";
 import { StudioShelf } from "../../models/studio-shelf";
 import { StudioCandles } from "../../models/studio-candles";
+import { StudioLamp } from "../../models/studio-lamp";
+import { StudioCarpet } from "../../models/studio-carpet";
 
 export const WALL_Z = -4.4;
 export const PANEL_Z = -3.85;
@@ -22,6 +24,14 @@ export const SHELF_POSITION: [number, number, number] = [-2.8, -1.4, WINDOW_OPEN
 export const CANDLES_POSITION: [number, number, number] = [-1.6, 0, WINDOW_OPENING_Z - 0.2];
 
 export const DESK_POSITION: [number, number, number] = [0, -1.5, -3];
+export const LAMP_POSITION: [number, number, number] = [1.5, -1.45, -3.15];
+export const CARPET_POSITION: [number, number, number] = [0, -1.72, -3.05];
+export const LAMP_BULB_POSITION: [number, number, number] = [
+  LAMP_POSITION[0] - 0.05,
+  LAMP_POSITION[1] + 1.55,
+  LAMP_POSITION[2] + 0.02,
+];
+export const CEILING_LIGHT_POSITION: [number, number, number] = [-0.08, 1.65, -0.35];
 
 const createWallMaterial = (
   color: string,
@@ -112,12 +122,28 @@ export const LandingBackground = forwardRef<THREE.Group, LandingBackgroundProps>
         <StudioBlinds position={BLINDS_POSITION} rotation={[0, Math.PI, 0]} width={1} />
         <StudioShelf position={SHELF_POSITION} rotation={[0, Math.PI, 0]} width={3} />
         <StudioCandles position={CANDLES_POSITION} rotation={[0, Math.PI, 0]} width={0.4} />
+        <StudioLamp position={LAMP_POSITION} rotation={[0, Math.PI, 0]} height={2.3} />
+        <pointLight
+          color="#ffd7ad"
+          position={LAMP_BULB_POSITION}
+          intensity={1.35}
+          distance={2.6}
+          decay={2.15}
+        />
+        <pointLight
+          color="#ffe8c8"
+          position={CEILING_LIGHT_POSITION}
+          intensity={0.4}
+          distance={2.6}
+          decay={2}
+        />
+        <StudioCarpet position={CARPET_POSITION} rotation={[0, Math.PI, 0]} width={4.5} />
         <group position={[0.03, 1.95, -3.3]}>
           <pointLight
             ref={lampLightRef}
-            color="#f2c884"
-            intensity={1.9}
-            distance={6.5}
+            color="#f7c58b"
+            intensity={1.35}
+            distance={5.2}
             decay={2}
           />
         </group>
@@ -139,9 +165,9 @@ export function LandingBackgroundFallback() {
         windowMaskMat={windowMaskMat}
         {...materials}
       />
-      <ambientLight intensity={0.6} />
-      <directionalLight position={[2, 2, 2]} intensity={1.2} />
-      <Environment preset="city" />
+      <ambientLight color="#2a1a14" intensity={0.32} />
+      <directionalLight color="#ffd9a6" position={[1.8, 2.5, 1]} intensity={0.7} />
+      <Environment preset="sunset" />
     </>
   );
 }
