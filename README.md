@@ -59,7 +59,7 @@ Update the data files under `src/data/` to refresh resume content. The landing a
 
 In this project, several assets were used. Here are the credits of such assets!
 
-1. Study table by window by Michael Pretz [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/cu6YTWSmJ4p)
+1. Standing Desk by dook [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/uxIo5ge0pw)
 
 2. Camera by Dario Demi (D911C) [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/f5xOh6J0EuB)
 

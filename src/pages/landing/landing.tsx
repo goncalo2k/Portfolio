@@ -1,9 +1,10 @@
 import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Environment, useGLTF } from "@react-three/drei";
 
 import './landing.scss';
+import { Desk } from "../../models/desk";
 
 type LandingIntroProps = {
   onFinish?: () => void;
@@ -25,9 +26,15 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
   const doneTriggeredRef = useRef(false);
 
   const t0 = useRef<number>(performance.now());
+  const { camera } = useThree();
+  const topCameraPosition = useMemo(() => new THREE.Vector3(0, 1, 3), []);
+  const topCameraTarget = useMemo(() => new THREE.Vector3(0, 0, -2), []);
+  const finalCameraPosition = useMemo(() => new THREE.Vector3(0, 0, 2.4), []);
+  const finalCameraTarget = useMemo(() => new THREE.Vector3(0, 0, 0), []);
+  const tempCameraPos = useRef(new THREE.Vector3());
+  const tempCameraTarget = useRef(new THREE.Vector3());
 
   const cameraGLTF = useGLTF("/models/camera.glb");
-  const studyTableGLTF = useGLTF("/models/study-table.glb");
   const createWallMaterial = (
     color: string,
     roughness = 0.9,
@@ -69,35 +76,6 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
     return clone;
   }, [cameraGLTF.scene]);
 
-  const studyTableModel = useMemo(() => {
-    const clone = studyTableGLTF.scene.clone(true);
-    clone.updateMatrixWorld(true);
-    const box = new THREE.Box3().setFromObject(clone);
-    const center = box.getCenter(new THREE.Vector3());
-    const size = box.getSize(new THREE.Vector3());
-    const targetWidth = 6.5;
-    if (size.x > 0) {
-      const scale = targetWidth / size.x;
-      clone.scale.setScalar(scale);
-    }
-    clone.position.set(-center.x, -box.min.y, -center.z);
-    clone.traverse((obj) => {
-      if (obj instanceof THREE.Mesh) {
-        obj.castShadow = true;
-        obj.receiveShadow = true;
-        const mats = Array.isArray(obj.material) ? obj.material : [obj.material];
-        mats.forEach((mat) => {
-          if (!mat) return;
-          if (mat.userData.__baseOpacity === undefined) {
-            mat.userData.__baseOpacity = mat.opacity ?? 1;
-          }
-          mat.transparent = true;
-          mat.needsUpdate = true;
-        });
-      }
-    });
-    return clone;
-  }, [studyTableGLTF.scene]);
 
   const windowMaskMat = useMemo(() => {
     const mat = new THREE.ShaderMaterial({
@@ -128,18 +106,6 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
         }
       `,
     });
-    return mat;
-  }, []);
-
-  const lampGlowMat = useMemo(() => {
-    const mat = new THREE.MeshBasicMaterial({
-      color: "#ffd8a6",
-      opacity: 0.85,
-      transparent: true,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending,
-    });
-    mat.userData.__baseOpacity = mat.opacity;
     return mat;
   }, []);
 
@@ -254,14 +220,25 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
     const zoom = clamp01((t - zoomStart) / zoomDuration);
     const zoomE = easeInOutCubic(zoom);
 
+    tempCameraPos.current
+      .copy(topCameraPosition)
+      .lerp(finalCameraPosition, zoomE);
+    tempCameraTarget.current
+      .copy(topCameraTarget)
+      .lerp(finalCameraTarget, zoomE);
+    camera.position.copy(tempCameraPos.current);
+    camera.lookAt(tempCameraTarget.current);
+    camera.updateProjectionMatrix();
+
     if (group.current) {
       const g = group.current;
+      const lift = THREE.MathUtils.lerp(0, 0.55, turn);
       const pitch = THREE.MathUtils.lerp(
         THREE.MathUtils.degToRad(-35),
         THREE.MathUtils.degToRad(-5),
         easeOutCubic(fall)
       );
-      g.position.set(0, dropY, THREE.MathUtils.lerp(-0.5, 1.6, zoomE));
+      g.position.set(0, dropY + lift, THREE.MathUtils.lerp(-0.5, 1.6, zoomE));
       g.rotation.x = pitch;
       g.rotation.y = turnAngle;
       g.rotation.z = Math.sin(t * 0.8) * 0.06 * (1 - zoomE);
@@ -315,51 +292,36 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
 
   return (
     <>
-      {studyTableModel && (
-        <group ref={sceneryGroup}>
-          <mesh position={[0, -0.1, -3.9]} material={wallMat}>
-            <planeGeometry args={[11, 7]} />
+      <group ref={sceneryGroup}>
+        <mesh position={[0, -0.1, -3.9]} material={wallMat}>
+          <planeGeometry args={[11, 7]} />
+        </mesh>
+        {Array.from({ length: 5 }).map((_, idx) => (
+          <mesh
+            key={`panel-${idx}`}
+            position={[0, -1.6 + idx * 0.95, -3.85]}
+            material={wallPanelMat}
+          >
+            <boxGeometry args={[11, 0.3, 0.05]} />
           </mesh>
-          {Array.from({ length: 5 }).map((_, idx) => (
-            <mesh
-              key={`panel-${idx}`}
-              position={[0, -1.6 + idx * 0.95, -3.85]}
-              material={wallPanelMat}
-            >
-              <boxGeometry args={[11, 0.3, 0.05]} />
-            </mesh>
-          ))}
-          <mesh position={[0, -2.8, -3.8]} material={baseboardMat}>
-            <boxGeometry args={[11, 0.25, 0.1]} />
-          </mesh>
-          <mesh position={[0, 0.4, -3.7]} material={windowMaskMat} renderOrder={-1}>
-            <planeGeometry args={[7, 5]} />
-          </mesh>
-          <group position={[0.03, 1.95, -3.3]}>
-            <pointLight
-              ref={lampLightRef}
-              color="#f2c884"
-              intensity={1.9}
-              distance={6.5}
-              decay={2}
-            />
-            <mesh rotation={[Math.PI, 0, 0]} position={[0, -0.08, 0]}
-              material={lampGlowMat}
-            >
-              <circleGeometry args={[0.5, 48]} />
-            </mesh>
-            <mesh position={[0, -0.72, 0]}>
-              <cylinderGeometry args={[0.05, 0.05, 0.6, 16]} />
-              <meshStandardMaterial color="#d8d8dd" roughness={0.4} metalness={0.1} />
-            </mesh>
-          </group>
-          {studyTableModel && (
-            <group position={[0, -1.4, -3.2]} rotation={[0, Math.PI, 0]}>
-              <primitive object={studyTableModel} />
-            </group>
-          )}
+        ))}
+        <mesh position={[0, -2.8, -3.8]} material={baseboardMat}>
+          <boxGeometry args={[11, 0.25, 0.1]} />
+        </mesh>
+        <mesh position={[0, 0.4, -3.7]} material={windowMaskMat} renderOrder={-1}>
+          <planeGeometry args={[7, 5]} />
+        </mesh>
+        <group position={[0.03, 1.95, -3.3]}>
+          <pointLight
+            ref={lampLightRef}
+            color="#f2c884"
+            intensity={1.9}
+            distance={6.5}
+            decay={2}
+          />
         </group>
-      )}
+        <Desk position={[0, -1.4, -3.2]} rotation={[0, Math.PI, 0]} scale={[0.4, 0.4, 0.6]} />
+      </group>
       <group ref={cameraRig}>
         <group ref={group}>{cameraModel && <primitive object={cameraModel} />}</group>
       </group>
@@ -388,7 +350,6 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
 }
 
 useGLTF.preload("/models/camera.glb");
-useGLTF.preload("/models/study-table.glb");
 
 export default function LandingIntro({ onFinish }: LandingIntroProps) {
   const [done, setDone] = useState(false);
