@@ -26,13 +26,15 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
   const doneTriggeredRef = useRef(false);
 
   const t0 = useRef<number>(performance.now());
-  const { camera } = useThree();
-  const topCameraPosition = useMemo(() => new THREE.Vector3(0, 1, 3), []);
-  const topCameraTarget = useMemo(() => new THREE.Vector3(0, 0, -2), []);
-  const finalCameraPosition = useMemo(() => new THREE.Vector3(0, 0, 2.4), []);
-  const finalCameraTarget = useMemo(() => new THREE.Vector3(0, 0, 0), []);
+  const { camera, size } = useThree();
+  const topCameraPosition = useMemo(() => new THREE.Vector3(-0.18, 1.05, 0.2), []);
+  const topCameraTarget = useMemo(() => new THREE.Vector3(-0.25, -0.4, -2.8), []);
+  const finalCameraPosition = useMemo(() => new THREE.Vector3(0, 0.85, 0.9), []);
+  const finalCameraTarget = useMemo(() => new THREE.Vector3(0, -0.25, -1.6), []);
   const tempCameraPos = useRef(new THREE.Vector3());
   const tempCameraTarget = useRef(new THREE.Vector3());
+  const flashDir = useRef(new THREE.Vector3());
+  const flashPos = useRef(new THREE.Vector3());
 
   const cameraGLTF = useGLTF("/models/camera.glb");
   const createWallMaterial = (
@@ -230,6 +232,20 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
     camera.lookAt(tempCameraTarget.current);
     camera.updateProjectionMatrix();
 
+    if (flashPlane.current) {
+      const plane = flashPlane.current;
+      const dist = 0.25;
+      flashDir.current.set(0, 0, -1).applyQuaternion(camera.quaternion).normalize();
+      flashPos.current.copy(camera.position).addScaledVector(flashDir.current, dist);
+      plane.position.copy(flashPos.current);
+      plane.quaternion.copy(camera.quaternion);
+      if (camera instanceof THREE.PerspectiveCamera) {
+        const height = 2 * Math.tan(THREE.MathUtils.degToRad(camera.fov * 0.5)) * dist;
+        const width = height * (size.width / size.height);
+        plane.scale.set(width, height, 1);
+      }
+    }
+
     if (group.current) {
       const g = group.current;
       const lift = THREE.MathUtils.lerp(0, 0.55, turn);
@@ -238,11 +254,11 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
         THREE.MathUtils.degToRad(-5),
         easeOutCubic(fall)
       );
-      g.position.set(0, dropY + lift, THREE.MathUtils.lerp(-0.5, 1.6, zoomE));
+      g.position.set(0, dropY + lift, -1.8);
       g.rotation.x = pitch;
       g.rotation.y = turnAngle;
-      g.rotation.z = Math.sin(t * 0.8) * 0.06 * (1 - zoomE);
-      const scale = 1 + zoomE * 0.35;
+      g.rotation.z = Math.sin(t * 0.4) * 0.06 * (1 - zoomE);
+      const scale = 0.78 + zoomE * 0.25;
       g.scale.set(scale, scale, scale);
     }
 
@@ -320,7 +336,7 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
             decay={2}
           />
         </group>
-        <Desk position={[0, -1.4, -3.2]} rotation={[0, Math.PI, 0]} scale={[0.4, 0.4, 0.6]} />
+        <Desk position={[0, -1.5, -3.3]} rotation={[0, Math.PI, 0]} scale={[0.38, 0.38, 0.52]} />
       </group>
       <group ref={cameraRig}>
         <group ref={group}>{cameraModel && <primitive object={cameraModel} />}</group>
