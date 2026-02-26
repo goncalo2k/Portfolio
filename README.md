@@ -63,4 +63,10 @@ In this project, several assets were used. Here are the credits of such assets!
 
 2. Camera by Dario Demi (D911C) [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/f5xOh6J0EuB)
 
-3. Little Private Beach by Carson Lam [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/2AeF-fuFHNu)
+3. Window by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/98ZJrd80Q1V)
+
+4. Window Blinds by Alex Safayan [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/0cXeRYAnxCi)
+
+5. Shelf by Jonathan Granskog [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/3aAw-c_7gkO)
+
+5. Scented candles by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/3t55kWZHM87)

@@ -6,6 +6,9 @@ import { Environment, useGLTF } from "@react-three/drei";
 import './landing.scss';
 import { Desk } from "../../models/desk";
 import { StudioWindow } from "../../models/studio-window";
+import { StudioBlinds } from "../../models/studio-blinds";
+import { StudioShelf } from "../../models/studio-shelf";
+import { StudioCandles } from "../../models/studio-candles";
 
 type LandingIntroProps = {
   onFinish?: () => void;
@@ -264,7 +267,7 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
         easeOutCubic(fall)
       );
       const turnDrop = THREE.MathUtils.lerp(-0.28, -0.38, turn);
-      g.position.set(-0.08, dropY + lift + turnDrop +.15, -1.6);
+      g.position.set(-0.08, dropY + lift + turnDrop + .15, -1.6);
       g.rotation.x = pitch;
       g.rotation.y = turnAngle;
       g.rotation.z = Math.sin(t * 0.4) * 0.06 * (1 - zoomE);
@@ -341,9 +344,24 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
           <planeGeometry args={[7, 5]} />
         </mesh>
         <StudioWindow
-          position={[-.26, 0.5, WINDOW_OPENING_Z]}
+          position={[0, 0.5, WINDOW_OPENING_Z]}
           rotation={[0, Math.PI / 2, 0]}
           width={0.25}
+        />
+        <StudioBlinds
+          position={[0, 0.5, WINDOW_OPENING_Z + 0.4]}
+          rotation={[0, Math.PI, 0]}
+          width={1}
+        />
+        <StudioShelf
+          position={[-2.8, -1.4, WINDOW_OPENING_Z - 0.2]}
+                    rotation={[0, Math.PI, 0]}
+          width={3}
+        />
+        <StudioCandles
+          position={[-1.6, 0, WINDOW_OPENING_Z - 0.2]}
+          rotation={[0, Math.PI, 0]}
+          width={0.4}
         />
         <group position={[0.03, 1.95, -3.3]}>
           <pointLight
