@@ -29,8 +29,8 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
   const { camera, size } = useThree();
   const topCameraPosition = useMemo(() => new THREE.Vector3(-0.18, .3, 0.2), []);
   const topCameraTarget = useMemo(() => new THREE.Vector3(-0.25, 0, -2.8), []);
-  const finalCameraPosition = useMemo(() => new THREE.Vector3(0, 0.85, 0.9), []);
-  const finalCameraTarget = useMemo(() => new THREE.Vector3(0, -0.25, -1.6), []);
+  const finalCameraPosition = useMemo(() => new THREE.Vector3(-0.08, 0.72, -0.3), []);
+  const finalCameraTarget = useMemo(() => new THREE.Vector3(-0.08, 0.35, -1.35), []);
   const tempCameraPos = useRef(new THREE.Vector3());
   const tempCameraTarget = useRef(new THREE.Vector3());
   const flashDir = useRef(new THREE.Vector3());
@@ -113,6 +113,7 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
 
   const wallMat = useMemo(() => createWallMaterial("#23262d"), []);
   const wallPanelMat = useMemo(() => createWallMaterial("#1d1f27", 0.85, 0.02), []);
+  const windowBackdropMat = useMemo(() => createWallMaterial("#0d111a", 0.95, 0.02), []);
   const baseboardMat = useMemo(() => createWallMaterial("#32323b", 0.7, 0.02), []);
 
   const flashMat = useMemo(() => {
@@ -254,12 +255,12 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
         THREE.MathUtils.degToRad(-5),
         easeOutCubic(fall)
       );
-      const turnDrop = THREE.MathUtils.lerp(-0.2, -0.3, turn);
-      g.position.set(-0.18, dropY + lift + turnDrop , -2);
+      const turnDrop = THREE.MathUtils.lerp(-0.28, -0.38, turn);
+      g.position.set(-0.08, dropY + lift + turnDrop +.15, -1.6);
       g.rotation.x = pitch;
       g.rotation.y = turnAngle;
       g.rotation.z = Math.sin(t * 0.4) * 0.06 * (1 - zoomE);
-      const scale = 0.78 + zoomE * 0.25;
+      const scale = 0.62 + zoomE * 0.18;
       g.scale.set(scale, scale, scale);
     }
 
@@ -310,7 +311,7 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
   return (
     <>
       <group ref={sceneryGroup}>
-        <mesh position={[0, -0.1, -10.4]} material={wallMat}>
+        <mesh position={[0, -0.1, -4.4]} material={wallMat}>
           <planeGeometry args={[11, 7]} />
         </mesh>
         {Array.from({ length: 5 }).map((_, idx) => (
@@ -324,6 +325,9 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
         ))}
         <mesh position={[0, -2.8, -3.8]} material={baseboardMat}>
           <boxGeometry args={[11, 0.25, 0.1]} />
+        </mesh>
+        <mesh position={[0, 0.55, -4.2]} material={windowBackdropMat}>
+          <planeGeometry args={[7.5, 5.3]} />
         </mesh>
         <mesh position={[0, 0.4, -3.7]} material={windowMaskMat} renderOrder={-1}>
           <planeGeometry args={[7, 5]} />
