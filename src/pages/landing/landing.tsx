@@ -27,8 +27,8 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
 
   const t0 = useRef<number>(performance.now());
   const { camera, size } = useThree();
-  const topCameraPosition = useMemo(() => new THREE.Vector3(-0.18, 1.05, 0.2), []);
-  const topCameraTarget = useMemo(() => new THREE.Vector3(-0.25, -0.4, -2.8), []);
+  const topCameraPosition = useMemo(() => new THREE.Vector3(-0.18, .3, 0.2), []);
+  const topCameraTarget = useMemo(() => new THREE.Vector3(-0.25, 0, -2.8), []);
   const finalCameraPosition = useMemo(() => new THREE.Vector3(0, 0.85, 0.9), []);
   const finalCameraTarget = useMemo(() => new THREE.Vector3(0, -0.25, -1.6), []);
   const tempCameraPos = useRef(new THREE.Vector3());
@@ -254,7 +254,8 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
         THREE.MathUtils.degToRad(-5),
         easeOutCubic(fall)
       );
-      g.position.set(0, dropY + lift, -1.8);
+      const turnDrop = THREE.MathUtils.lerp(-0.2, -0.3, turn);
+      g.position.set(-0.18, dropY + lift + turnDrop , -2);
       g.rotation.x = pitch;
       g.rotation.y = turnAngle;
       g.rotation.z = Math.sin(t * 0.4) * 0.06 * (1 - zoomE);
@@ -309,7 +310,7 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
   return (
     <>
       <group ref={sceneryGroup}>
-        <mesh position={[0, -0.1, -3.9]} material={wallMat}>
+        <mesh position={[0, -0.1, -10.4]} material={wallMat}>
           <planeGeometry args={[11, 7]} />
         </mesh>
         {Array.from({ length: 5 }).map((_, idx) => (
