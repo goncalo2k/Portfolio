@@ -4,11 +4,12 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Environment, useGLTF } from "@react-three/drei";
 
 import './landing.scss';
-import { Desk } from "../../models/desk";
-import { StudioWindow } from "../../models/studio-window";
-import { StudioBlinds } from "../../models/studio-blinds";
-import { StudioShelf } from "../../models/studio-shelf";
-import { StudioCandles } from "../../models/studio-candles";
+import {
+  LandingBackground,
+  LandingBackgroundFallback,
+  createLandingBackgroundMaterials,
+  createWindowMaskMaterial,
+} from "../../scenes/landing/background";
 
 type LandingIntroProps = {
   onFinish?: () => void;
@@ -18,13 +19,6 @@ type IntroSceneProps = {
   onDone?: () => void;
   progressRef: React.MutableRefObject<number>;
 };
-
-const WALL_Z = -4.4;
-const PANEL_Z = -3.85;
-const BASEBOARD_Z = -3.8;
-const WINDOW_BACKDROP_Z = -4.2;
-const WINDOW_OPENING_Z = -3.7;
-const BACKGROUND_DEPTH_OFFSET = 0.45;
 
 function IntroScene({ onDone, progressRef }: IntroSceneProps) {
   const group = useRef<THREE.Group>(null);
@@ -48,20 +42,8 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
   const flashPos = useRef(new THREE.Vector3());
 
   const cameraGLTF = useGLTF("/models/camera.glb");
-  const createWallMaterial = (
-    color: string,
-    roughness = 0.9,
-    metalness = 0.05
-  ) => {
-    const mat = new THREE.MeshStandardMaterial({
-      color,
-      roughness,
-      metalness,
-    });
-    mat.userData.__baseOpacity = mat.opacity ?? 1;
-    mat.transparent = true;
-    return mat;
-  };
+  const backgroundMaterials = useMemo(() => createLandingBackgroundMaterials(), []);
+  const windowMaskMat = useMemo(() => createWindowMaskMaterial(), []);
 
   const cameraModel = useMemo(() => {
     const clone = cameraGLTF.scene.clone(true);
@@ -89,43 +71,6 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
     return clone;
   }, [cameraGLTF.scene]);
 
-
-  const windowMaskMat = useMemo(() => {
-    const mat = new THREE.ShaderMaterial({
-      transparent: true,
-      depthWrite: false,
-      uniforms: {
-        uColor: { value: new THREE.Color("#04050a") },
-        uOpacity: { value: 1 },
-        uRect: { value: new THREE.Vector4(0.38, 0.44, 0.6, 0.96) },
-      },
-      vertexShader: `
-        varying vec2 vUv;
-        void main() {
-          vUv = uv;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-      `,
-      fragmentShader: `
-        varying vec2 vUv;
-        uniform vec3 uColor;
-        uniform vec4 uRect;
-        uniform float uOpacity;
-        void main() {
-          bool insideX = vUv.x > uRect.x && vUv.x < uRect.z;
-          bool insideY = vUv.y > uRect.y && vUv.y < uRect.w;
-          if (insideX && insideY) discard;
-          gl_FragColor = vec4(uColor, uOpacity);
-        }
-      `,
-    });
-    return mat;
-  }, []);
-
-  const wallMat = useMemo(() => createWallMaterial("#23262d"), []);
-  const wallPanelMat = useMemo(() => createWallMaterial("#1d1f27", 0.85, 0.02), []);
-  const windowBackdropMat = useMemo(() => createWallMaterial("#0d111a", 0.95, 0.02), []);
-  const baseboardMat = useMemo(() => createWallMaterial("#32323b", 0.7, 0.02), []);
 
   const flashMat = useMemo(() => {
     const mat = new THREE.MeshBasicMaterial({
@@ -321,59 +266,12 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
 
   return (
     <>
-      <group ref={sceneryGroup}>
-        <mesh position={[0, -0.1, WALL_Z - BACKGROUND_DEPTH_OFFSET]} material={wallMat}>
-          <planeGeometry args={[11, 7]} />
-        </mesh>
-        {Array.from({ length: 5 }).map((_, idx) => (
-          <mesh
-            key={`panel-${idx}`}
-            position={[0, -1.6 + idx * 0.95, PANEL_Z - BACKGROUND_DEPTH_OFFSET]}
-            material={wallPanelMat}
-          >
-            <boxGeometry args={[11, 0.3, 0.05]} />
-          </mesh>
-        ))}
-        <mesh position={[0, -2.8, BASEBOARD_Z - BACKGROUND_DEPTH_OFFSET]} material={baseboardMat}>
-          <boxGeometry args={[11, 0.25, 0.1]} />
-        </mesh>
-        <mesh position={[0, 0.55, WINDOW_BACKDROP_Z - BACKGROUND_DEPTH_OFFSET]} material={windowBackdropMat}>
-          <planeGeometry args={[7.5, 5.3]} />
-        </mesh>
-        <mesh position={[0, 0.4, WINDOW_OPENING_Z - BACKGROUND_DEPTH_OFFSET]} material={windowMaskMat} renderOrder={-1}>
-          <planeGeometry args={[7, 5]} />
-        </mesh>
-        <StudioWindow
-          position={[0, 0.5, WINDOW_OPENING_Z]}
-          rotation={[0, Math.PI / 2, 0]}
-          width={0.25}
-        />
-        <StudioBlinds
-          position={[0, 0.5, WINDOW_OPENING_Z + 0.4]}
-          rotation={[0, Math.PI, 0]}
-          width={1}
-        />
-        <StudioShelf
-          position={[-2.8, -1.4, WINDOW_OPENING_Z - 0.2]}
-                    rotation={[0, Math.PI, 0]}
-          width={3}
-        />
-        <StudioCandles
-          position={[-1.6, 0, WINDOW_OPENING_Z - 0.2]}
-          rotation={[0, Math.PI, 0]}
-          width={0.4}
-        />
-        <group position={[0.03, 1.95, -3.3]}>
-          <pointLight
-            ref={lampLightRef}
-            color="#f2c884"
-            intensity={1.9}
-            distance={6.5}
-            decay={2}
-          />
-        </group>
-        <Desk position={[0, -1.5, -3.3]} rotation={[0, Math.PI, 0]} scale={[0.38, 0.38, 0.52]} />
-      </group>
+      <LandingBackground
+        ref={sceneryGroup}
+        lampLightRef={lampLightRef}
+        windowMaskMat={windowMaskMat}
+        {...backgroundMaterials}
+      />
       <group ref={cameraRig}>
         <group ref={group}>{cameraModel && <primitive object={cameraModel} />}</group>
       </group>
@@ -428,7 +326,7 @@ export default function LandingIntro({ onFinish }: LandingIntroProps) {
       style={{ opacity }}
     >
       <Canvas camera={{ position: [0, 0, 2.4], fov: 45 }}>
-        <Suspense fallback={null}>
+        <Suspense fallback={<LandingBackgroundFallback />}>
           <IntroScene onDone={() => setDone(true)} progressRef={progressRef} />
         </Suspense>
       </Canvas>

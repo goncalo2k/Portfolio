@@ -70,3 +70,5 @@ In this project, several assets were used. Here are the credits of such assets!
 5. Shelf by Jonathan Granskog [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/3aAw-c_7gkO)
 
 5. Scented candles by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/3t55kWZHM87)
+
+6. Light Stand by Quaternius (https://poly.pizza/m/9L6lLUl9sD)
