@@ -5,6 +5,7 @@ import { Environment, useGLTF } from "@react-three/drei";
 
 import './landing.scss';
 import { Desk } from "../../models/desk";
+import { StudioWindow } from "../../models/studio-window";
 
 type LandingIntroProps = {
   onFinish?: () => void;
@@ -14,6 +15,13 @@ type IntroSceneProps = {
   onDone?: () => void;
   progressRef: React.MutableRefObject<number>;
 };
+
+const WALL_Z = -4.4;
+const PANEL_Z = -3.85;
+const BASEBOARD_Z = -3.8;
+const WINDOW_BACKDROP_Z = -4.2;
+const WINDOW_OPENING_Z = -3.7;
+const BACKGROUND_DEPTH_OFFSET = 0.45;
 
 function IntroScene({ onDone, progressRef }: IntroSceneProps) {
   const group = useRef<THREE.Group>(null);
@@ -311,27 +319,32 @@ function IntroScene({ onDone, progressRef }: IntroSceneProps) {
   return (
     <>
       <group ref={sceneryGroup}>
-        <mesh position={[0, -0.1, -4.4]} material={wallMat}>
+        <mesh position={[0, -0.1, WALL_Z - BACKGROUND_DEPTH_OFFSET]} material={wallMat}>
           <planeGeometry args={[11, 7]} />
         </mesh>
         {Array.from({ length: 5 }).map((_, idx) => (
           <mesh
             key={`panel-${idx}`}
-            position={[0, -1.6 + idx * 0.95, -3.85]}
+            position={[0, -1.6 + idx * 0.95, PANEL_Z - BACKGROUND_DEPTH_OFFSET]}
             material={wallPanelMat}
           >
             <boxGeometry args={[11, 0.3, 0.05]} />
           </mesh>
         ))}
-        <mesh position={[0, -2.8, -3.8]} material={baseboardMat}>
+        <mesh position={[0, -2.8, BASEBOARD_Z - BACKGROUND_DEPTH_OFFSET]} material={baseboardMat}>
           <boxGeometry args={[11, 0.25, 0.1]} />
         </mesh>
-        <mesh position={[0, 0.55, -4.2]} material={windowBackdropMat}>
+        <mesh position={[0, 0.55, WINDOW_BACKDROP_Z - BACKGROUND_DEPTH_OFFSET]} material={windowBackdropMat}>
           <planeGeometry args={[7.5, 5.3]} />
         </mesh>
-        <mesh position={[0, 0.4, -3.7]} material={windowMaskMat} renderOrder={-1}>
+        <mesh position={[0, 0.4, WINDOW_OPENING_Z - BACKGROUND_DEPTH_OFFSET]} material={windowMaskMat} renderOrder={-1}>
           <planeGeometry args={[7, 5]} />
         </mesh>
+        <StudioWindow
+          position={[-.26, 0.5, WINDOW_OPENING_Z]}
+          rotation={[0, Math.PI / 2, 0]}
+          width={0.25}
+        />
         <group position={[0.03, 1.95, -3.3]}>
           <pointLight
             ref={lampLightRef}
