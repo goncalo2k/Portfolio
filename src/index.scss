@@ -68,19 +68,23 @@ h1 {
   :root {
     color: colors.$gray-200;
     background: radial-gradient(circle at 50% 55%,
-        colors.$primary,
-        colors.$navy-900 75%);
+        #ca84eb,
+        #102542 75%);
     background-color: colors.$white;
 
     @keyframes gradient {
 
       0%,
       100% {
-        background-position: 0% 50%;
+        background-position: 0% 45%;
+      }
+
+      25%, 75% {
+        background-position: 25% 25%;
       }
 
       50% {
-        background-position: 50% 0%;
+        background-position: 45% 0%;
       }
     }
 

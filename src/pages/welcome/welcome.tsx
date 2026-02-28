@@ -1,5 +1,4 @@
 import Button from '../../components/button/button';
-import Chip from '../../components/chip/chip';
 import { scrollToId } from '../../utils/utils';
 import './welcome.scss';
 import { FaCaretDown, FaGithub, FaLinkedin } from 'react-icons/fa';
@@ -8,12 +7,15 @@ import { HiOutlineMail } from 'react-icons/hi';
 export default function Welcome() {
     return (
         <div id='home' className='welcome-container'>
-            <Chip text='Welcome to my portfolio' />
-            <h1 className='title name-label'>Gonçalo Miranda</h1>
-            <span className='sub-title'>Software Engineer</span>
-            <span className='text secondary'>Crafting beautiful, user-centric web experiences with modern
-                technologies. Passionate about clean code, intuitive design, and solving
-                complex problems.</span>
+            <div className='hero-container'>
+                <div className='hero-text-container'>
+                    <div><span className='sub-title'>Hey! I'm </span> <span className='sub-title name-label'>Gonçalo</span><span className='sub-title'>!</span></div>
+                    <span className='text'>Building all the time, taking pictures occasionaly.</span>
+                    <span className='text secondary'>Software Engineer @ Deloitte</span>
+                </div>
+                <img className="avatar" src="pfp.jpg" alt="" />
+            </div>
+
             <div className='multi-button-container'>
                 <Button minSizeActive={false} textContent='Get in touch' onClick={() => scrollToId('contacts')} />
                 <Button minSizeActive={false} textContent='View Experience' onClick={() => scrollToId('experience')} />
