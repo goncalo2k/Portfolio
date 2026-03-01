@@ -11,20 +11,36 @@
 
     margin-top: sizes.$spacing-4;
 
+    .hero-container {
+        text-align: left;
+        display: flex;
+        flex-direction: row;
+        gap: sizes.$spacing-14;
+
+        .hero-text-container {
+            display: flex;
+            flex-direction: column;
+            gap: sizes.$spacing-3;
+        }
+
+        .avatar {
+            object-fit: cover;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+    }
+
     .name-label {
         background: radial-gradient(circle at 50% 55%,
-                colors.$secondary,
-                colors.$primary 75%);
+                #e58f4e,
+                #ca84eb 75%);
         -webkit-background-clip: text;
         background-clip: text;
 
         -webkit-text-fill-color: transparent;
         color: transparent;
-    }
-
-    .text {
-        padding: sizes.$spacing-2 sizes.$spacing-6;
-        margin: 0 sizes.$spacing-12;
     }
 
     .multi-button-container,
@@ -44,6 +60,10 @@
 }
 
 @include bps.tablet-down {
+    .hero-container {
+        gap: sizes.$spacing-14;
+    }
+
     .multi-button-container {
         display: none !important;
     }
