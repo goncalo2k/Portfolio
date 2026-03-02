@@ -35,6 +35,20 @@ The project uses pnpm by default. If you prefer npm or yarn, delete the existing
 - `pnpm run deploy` production build followed by `wrangler deploy`
 - `pnpm run cf-typegen` regenerate worker type definitions
 
+## Spotify Webhook Auto-Subscription
+
+When the React app boots it automatically sends a subscription request to the provider Worker and logs the response in the browser console. Configure the following environment variables locally (e.g. via `.env.local`) so Vite can inject them into the bundle:
+
+```
+VITE_SPOTIFY_PROVIDER_URL=https://api.goncalo2k.pt
+VITE_SPOTIFY_WEBHOOK_URL=https://your-site.com/api/spotify
+VITE_SPOTIFY_ADMIN_TOKEN=replace-me
+# optional:
+VITE_SPOTIFY_SIGNING_SECRET=my-secret
+```
+
+These values are embedded in the client build, so treat them accordingly.
+
 ## Project Layout
 
 ```

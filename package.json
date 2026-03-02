@@ -4,7 +4,7 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"dev": "vite",
+		"dev": "pnpm wrangler dev",
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",
 		"preview": "pnpm run build && vite preview",

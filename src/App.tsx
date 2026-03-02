@@ -4,8 +4,10 @@ import ExperienceContainer from './components/experience-container/experience-co
 import Footer from './components/footer/footer'
 import Welcome from './components/welcome/welcome'
 import { experienceData } from './data/experience'
+import useSpotifyWebhookSubscription from './hooks/useSpotifyWebhookSubscription'
 
 function App() {
+  useSpotifyWebhookSubscription()
   return (
     <>
       <main>

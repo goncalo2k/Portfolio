@@ -2,7 +2,6 @@ import { scrollToId } from '../../utils/utils';
 import './header.scss';
 import { FaHome, FaBriefcase, FaGraduationCap, FaCode } from 'react-icons/fa';
 import { useState, useEffect, useRef } from 'react';
-import { IoIosSend } from 'react-icons/io';
 
 type HeaderProps = {
     children?: React.ReactNode;
