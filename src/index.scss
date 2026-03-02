@@ -55,6 +55,7 @@ h1 {
   line-height: 1;
 
   &.secondary {
+    font-weight: 300;
     color: #ffffff73;
   }
 }
@@ -65,8 +66,8 @@ h1 {
 }
 
 .logo {
-  width: sizes.$spacing-8;
-  height: sizes.$spacing-8;
+  width: sizes.$spacing-6;
+  height: sizes.$spacing-6;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -81,7 +82,7 @@ h1 {
 
       0%,
       100% {
-        background-position: 0% 45%;
+        background-position: 0% 35%;
       }
 
       25%,
@@ -90,7 +91,7 @@ h1 {
       }
 
       50% {
-        background-position: 45% 0%;
+        background-position: 35% 0%;
       }
     }
 

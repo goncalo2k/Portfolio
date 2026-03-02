@@ -2,15 +2,23 @@
 @use "@goncalo2k/g2k-styles/breakpoints" as bps;
 
 .expandable-container {
+    --expandable-logo-size: #{sizes.$spacing-8};
+    --expandable-logo-padding: #{sizes.$spacing-1};
+    --expandable-logo-border: 1px;
+    --expandable-gap: #{sizes.$spacing-3};
+    width: 100%;
+    box-sizing: border-box;
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.07);
     overflow: hidden;
     transition: background-color 0.2s, border-color 0.2s;
     text-align: left;
+    gap: 0px;
 
     .description-text,
     .experience-info-text {
         font-size: sizes.$spacing-4;
+        font-weight: 300;
     }
 
     &.expanded {
@@ -21,14 +29,16 @@
     .expandable-header {
         display: flex;
         flex-direction: row;
-        gap: sizes.$spacing-3;
+        align-items: center;
+        gap: var(--expandable-gap);
+        width: 100%;
 
         .expandable-header-row {
             display: flex;
             flex-direction: row;
-            gap: sizes.$spacing-3;
+            gap: var(--expandable-gap);
             justify-content: space-between;
-
+            width: 100%;
         }
 
         .position-label {
@@ -36,11 +46,12 @@
         }
 
         .logo-container {
-            width: sizes.$spacing-10;
-            height: sizes.$spacing-10;
-            border-radius: sizes.$spacing-1;
+            width: var(--expandable-logo-size);
+            height: var(--expandable-logo-size);
+            border-radius: sizes.$spacing-2;
+            border: var(--expandable-logo-border) solid #ffffff1f;
             background-color: rgba(255, 255, 255, 0.049);
-            padding: sizes.$spacing-1;
+            padding: var(--expandable-logo-padding);
             text-align: center;
             align-content: end;
         }
@@ -66,19 +77,58 @@
         }
     }
 
+    .expandable-content {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+        width: 100%;
+
+        .expandable-header-column {
+            display: flex;
+            flex-direction: column;
+            gap: sizes.$spacing-1;
+            width: 100%;
+        }
+    }
+
+    .expandable-title-row {
+        align-items: center;
+
+        .expandable-icon {
+            margin-left: sizes.$spacing-3;
+        }
+    }
+
     .expandable-body {
-        padding-left: sizes.$spacing-10;
+        width: 100%;
+
+        .expandable-body-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            margin-top: 0;
+            transition: max-height 160ms ease, opacity 160ms ease, margin-top 160ms ease;
+            will-change: max-height;
+
+            &.expanded {
+                max-height: 1000px;
+                opacity: 1;
+                margin-top: sizes.$spacing-3;
+            }
+        }
+
+        .description-text {
+            line-height: 1.3;
+        }
     }
 
     .logo,
     .expandable-icon {
         flex-shrink: 0;
-    }
-}
-
-@media screen {
-    .expandable-body {
-        padding-left: sizes.$spacing-10;
     }
 }
 
