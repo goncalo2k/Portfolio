@@ -1,0 +1,89 @@
+@use "@goncalo2k/g2k-styles/sizes" as sizes;
+@use "@goncalo2k/g2k-styles/breakpoints" as bps;
+
+.expandable-container {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    overflow: hidden;
+    transition: background-color 0.2s, border-color 0.2s;
+    text-align: left;
+
+    .description-text,
+    .experience-info-text {
+        font-size: sizes.$spacing-4;
+    }
+
+    &.expanded {
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background-color: rgba(10, 18, 44, 0.55);
+    }
+
+    .expandable-header {
+        display: flex;
+        flex-direction: row;
+        gap: sizes.$spacing-3;
+
+        .expandable-header-row {
+            display: flex;
+            flex-direction: row;
+            gap: sizes.$spacing-3;
+            justify-content: space-between;
+
+        }
+
+        .position-label {
+            flex: 1;
+        }
+
+        .logo-container {
+            width: sizes.$spacing-10;
+            height: sizes.$spacing-10;
+            border-radius: sizes.$spacing-1;
+            background-color: rgba(255, 255, 255, 0.049);
+            padding: sizes.$spacing-1;
+            text-align: center;
+            align-content: end;
+        }
+
+        .expandable-icon {
+            color: #ffffff73;
+            width: sizes.$spacing-3;
+            height: sizes.$spacing-3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: center;
+            transform-origin: center;
+
+            transition: transform 180ms ease-in-out;
+
+            transform: rotate(0deg);
+            will-change: transform;
+
+            &.expanded {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    .expandable-body {
+        padding-left: sizes.$spacing-10;
+    }
+
+    .logo,
+    .expandable-icon {
+        flex-shrink: 0;
+    }
+}
+
+@media screen {
+    .expandable-body {
+        padding-left: sizes.$spacing-10;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .expandable-icon {
+        transition: none;
+    }
+}

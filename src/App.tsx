@@ -1,26 +1,27 @@
 import './App.scss'
-import Header from './components/header/header'
-import Contacts from './pages/contacts/contacts'
-import Education from './pages/education/education'
-import Experience from './pages/experience/experience'
-import Extracurriculars from './pages/extracurriculars/extracurriculars'
-import Projects from './pages/projects/projects'
-import Welcome from './pages/welcome/welcome'
+import Card from './components/card/card'
+import ExperienceContainer from './components/experience-container/experience-container'
+import Footer from './components/footer/footer'
+import Welcome from './components/welcome/welcome'
+import { experienceData } from './data/experience'
 
 function App() {
   return (
     <>
       <main>
-        <Header />
         <div className='content-container'>
           <Welcome />
-          <Experience />
-          <Education />
-          <Projects />
-          <Extracurriculars />
-          <Contacts />
+          <div className='content-container-row'>
+            <div className='experience-container'>
+              <ExperienceContainer experiences={experienceData} />
+            </div>
+            <Card>
+              <Card.Title>Spotify</Card.Title>
+            </Card>
+          </div>
         </div>
       </main>
+      <Footer />
     </>
   )
 }

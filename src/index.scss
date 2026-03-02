@@ -2,9 +2,9 @@
 @use "@goncalo2k/g2k-styles/sizes" as sizes;
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 600;
 
   color-scheme: dark;
 
@@ -51,17 +51,22 @@ h1 {
 }
 
 .text {
-  font-size: 20px;
+  font-size: sizes.$spacing-5;
   line-height: 1;
 
   &.secondary {
-    font-weight: lighter;
+    color: #ffffff73;
   }
 }
 
 .icon {
-  width: 20px;
-  height: 20px;
+  width: sizes.$spacing-5;
+  height: sizes.$spacing-5;
+}
+
+.logo {
+  width: sizes.$spacing-8;
+  height: sizes.$spacing-8;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -79,7 +84,8 @@ h1 {
         background-position: 0% 45%;
       }
 
-      25%, 75% {
+      25%,
+      75% {
         background-position: 25% 25%;
       }
 

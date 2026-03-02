@@ -6,6 +6,12 @@
 	text-align: center;
 	width: 100%;
 	max-width: 100vw;
+	display: flex;
+	flex-direction: column;
+
+	main {
+		flex: 1;
+	}
 }
 
 .content-container {
@@ -13,11 +19,18 @@
 	flex-direction: column;
 	gap: sizes.$spacing-18;
 	padding: sizes.$spacing-12;
+	margin: auto;
+
+	.content-container-row {
+		display: flex;
+		flex-direction: row;
+		gap: sizes.$spacing-2;
+	}
 }
 
 @include bps.tablet-down {
 	.content-container {
 		gap: sizes.$spacing-10;
-		padding: sizes.$spacing-3;
+		padding: sizes.$spacing-6;
 	}
 }

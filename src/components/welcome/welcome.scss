@@ -7,7 +7,6 @@
     flex-direction: column;
     gap: sizes.$spacing-12;
     align-items: center;
-    min-height: 95vh;
 
     margin-top: sizes.$spacing-4;
 
@@ -16,6 +15,8 @@
         display: flex;
         flex-direction: row;
         gap: sizes.$spacing-14;
+        width: 100%;
+        justify-content: space-between;
 
         .hero-text-container {
             display: flex;
@@ -30,6 +31,7 @@
             border-radius: 50%;
             flex-shrink: 0;
         }
+
     }
 
     .name-label {

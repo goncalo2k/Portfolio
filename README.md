@@ -59,19 +59,4 @@ Update the data files under `src/data/` to refresh resume content. The landing a
 
 In this project, several assets were used. Here are the credits of such assets!
 
-1. Standing Desk by dook [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/uxIo5ge0pw)
-
-2. Camera by Dario Demi (D911C) [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/f5xOh6J0EuB)
-
-3. Window by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/98ZJrd80Q1V)
-
-4. Window Blinds by Alex Safayan [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/0cXeRYAnxCi)
-
-5. Shelf by Jonathan Granskog [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/3aAw-c_7gkO)
-
-6. Scented candles by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/3t55kWZHM87)
-
-7. Light Stand by Quaternius (https://poly.pizza/m/9L6lLUl9sD)
-
-8. Rug by Quaternius (https://poly.pizza/m/7H5qKjuxVY)
-
+1. "Gaming Setup (low-poly)" (https://skfb.ly/oPvBW) by LagzDesign is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).

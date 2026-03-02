@@ -1,0 +1,6 @@
+@use "@goncalo2k/g2k-styles/sizes" as sizes;
+@use "@goncalo2k/g2k-styles/breakpoints" as bps;
+
+.experience-card {
+    padding: sizes.$spacing-4!important;
+}
