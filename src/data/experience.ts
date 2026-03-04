@@ -4,6 +4,7 @@ export const experienceData: Experience[] = [
     {
         id: 'exp-1',
         company: 'Deloitte',
+        companyLogoUrl: 'public/deloitte.png',
         position: 'Software Engineer - Tech Consultant',
         startDate: 'September 2024',
         endDate: 'Moment',
@@ -24,6 +25,7 @@ export const experienceData: Experience[] = [
     {
         id: 'exp-2',
         company: 'Deloitte',
+        companyLogoUrl: 'public/deloitte.png',
         position: 'Software Engineer - Intern',
         startDate: 'February 2024',
         endDate: 'July 2024',
@@ -40,6 +42,7 @@ export const experienceData: Experience[] = [
     {
         id: 'exp-3',
         company: 'Deloitte',
+        companyLogoUrl: 'public/deloitte.png',
         position: 'Salesforce Developer Intern',
         startDate: 'July 2023',
         endDate: 'July 2023',

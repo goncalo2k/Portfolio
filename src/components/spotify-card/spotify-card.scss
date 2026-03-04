@@ -1,0 +1,69 @@
+@use "@goncalo2k/g2k-styles/sizes" as sizes;
+
+.spotify-card {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: unset;
+    gap: sizes.$spacing-2;
+
+    .spotify-header-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .playing {
+            display: flex;
+            align-items: flex-end;
+            gap: sizes.$spacing-1;
+            margin-left: auto;
+            align-self: center;
+        }
+
+        .spotify-text {
+            color: #1db954
+        }
+    }
+
+    .spotify-content-container {
+        display: flex;
+        flex-direction: column;
+
+        gap: sizes.$spacing-2;
+
+        .track-content {
+            display: flex;
+            flex-direction: row;
+            gap: sizes.$spacing-3;
+
+            .record-background {
+                background-color: #ffffff1f;
+                border: 1px solid #ffffff1f;
+                border-radius: sizes.$spacing-6;
+                align-content: center;
+                opacity: .6;
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        .playback {
+            height: 2px;
+            background-color: #ffffff1f;
+        }
+
+        .text {
+            align-content: center;
+
+            &.secondary {
+                font-size: sizes.$spacing-4;
+            }
+        }
+    }
+
+    .logo {
+        vertical-align: middle;
+        height: sizes.$spacing-5;
+        width: sizes.$spacing-5;
+    }
+}

@@ -2,7 +2,6 @@ import { scrollToId } from '../../utils/utils';
 import './header.scss';
 import { FaHome, FaBriefcase, FaGraduationCap, FaCode } from 'react-icons/fa';
 import { useState, useEffect, useRef } from 'react';
-import { IoIosSend } from 'react-icons/io';
 
 type HeaderProps = {
     children?: React.ReactNode;
@@ -18,7 +17,6 @@ export default function Header(props: HeaderProps) {
         { label: 'Education', icon: FaGraduationCap, href: 'education' },
         { label: 'Projects', icon: FaCode, href: 'projects' },
         { label: 'Extracurriculars', icon: FaGraduationCap, href: 'extracurriculars' },
-        { label: 'Contacts', icon: IoIosSend, href: 'contacts' }
     ];
 
     useEffect(() => {
@@ -33,7 +31,7 @@ export default function Header(props: HeaderProps) {
                 });
             },
             {
-                rootMargin: '-80px 0px -5% 0px',
+                rootMargin: '0px 0px -5% 0px',
                 threshold: 0.1
             }
         );

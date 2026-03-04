@@ -1,0 +1,11 @@
+@use "@goncalo2k/g2k-styles/sizes" as sizes;
+
+.footer {
+	margin: sizes.$spacing-4;
+
+	.footer-text {
+		font-size: sizes.$spacing-3;
+		line-height: 1;
+		font-weight: lighter;
+	}
+}

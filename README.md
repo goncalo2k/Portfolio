@@ -35,6 +35,20 @@ The project uses pnpm by default. If you prefer npm or yarn, delete the existing
 - `pnpm run deploy` production build followed by `wrangler deploy`
 - `pnpm run cf-typegen` regenerate worker type definitions
 
+## Spotify Webhook Auto-Subscription
+
+When the React app boots it automatically sends a subscription request to the provider Worker and logs the response in the browser console. Configure the following environment variables locally (e.g. via `.env.local`) so Vite can inject them into the bundle:
+
+```
+VITE_SPOTIFY_PROVIDER_URL=https://api.goncalo2k.pt
+VITE_SPOTIFY_WEBHOOK_URL=https://your-site.com/api/spotify
+VITE_SPOTIFY_ADMIN_TOKEN=replace-me
+# optional:
+VITE_SPOTIFY_SIGNING_SECRET=my-secret
+```
+
+These values are embedded in the client build, so treat them accordingly.
+
 ## Project Layout
 
 ```
@@ -59,19 +73,4 @@ Update the data files under `src/data/` to refresh resume content. The landing a
 
 In this project, several assets were used. Here are the credits of such assets!
 
-1. Standing Desk by dook [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/uxIo5ge0pw)
-
-2. Camera by Dario Demi (D911C) [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/f5xOh6J0EuB)
-
-3. Window by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/98ZJrd80Q1V)
-
-4. Window Blinds by Alex Safayan [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/0cXeRYAnxCi)
-
-5. Shelf by Jonathan Granskog [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/3aAw-c_7gkO)
-
-6. Scented candles by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/3t55kWZHM87)
-
-7. Light Stand by Quaternius (https://poly.pizza/m/9L6lLUl9sD)
-
-8. Rug by Quaternius (https://poly.pizza/m/7H5qKjuxVY)
-
+1. "Gaming Setup (low-poly)" (https://skfb.ly/oPvBW) by LagzDesign is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).

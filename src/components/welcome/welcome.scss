@@ -1,0 +1,72 @@
+@use "@goncalo2k/g2k-styles/colors" as colors;
+@use "@goncalo2k/g2k-styles/sizes" as sizes;
+@use "@goncalo2k/g2k-styles/breakpoints" as bps;
+
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    gap: sizes.$spacing-12;
+    align-items: center;
+
+    margin-top: sizes.$spacing-4;
+
+    .hero-container {
+        text-align: left;
+        display: flex;
+        flex-direction: row;
+        gap: sizes.$spacing-14;
+        width: 100%;
+        justify-content: space-between;
+
+        .hero-text-container {
+            display: flex;
+            flex-direction: column;
+            gap: sizes.$spacing-3;
+        }
+
+        .avatar {
+            object-fit: cover;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+    }
+
+    .name-label {
+        background: radial-gradient(circle at 50% 55%,
+                #e58f4e,
+                #ca84eb 75%);
+        -webkit-background-clip: text;
+        background-clip: text;
+
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    }
+
+    .multi-button-container,
+    .multi-chip-container {
+        display: flex;
+        flex-direction: row;
+        gap: sizes.$spacing-4;
+        align-self: center;
+        margin-top: auto;
+    }
+
+    .bottom-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: auto;
+    }
+}
+
+@include bps.tablet-down {
+    .hero-container {
+        gap: sizes.$spacing-14;
+    }
+
+    .multi-button-container {
+        display: none !important;
+    }
+}
