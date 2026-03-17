@@ -1,0 +1,64 @@
+@use "@goncalo2k/g2k-styles/sizes" as sizes;
+
+.socials-card {
+    width: 100%;
+    box-sizing: border-box;
+
+    .socials-content-container {
+        display: flex;
+        flex-direction: column;
+        gap: sizes.$spacing-3;
+
+        .logo {
+            &.socials {
+                width: sizes.$spacing-4;
+                height: sizes.$spacing-4;
+            }
+        }
+
+        .social-link-card {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            border-radius: sizes.$spacing-3;
+            padding-left: sizes.$spacing-3;
+
+            transition:
+                transform .3s ease-in,
+                box-shadow .3s ease-in;
+
+            &:hover {
+                transform: translateX(2px);
+                box-shadow: 0 sizes.$spacing-5 sizes.$spacing-10 #00000026;
+            }
+
+            &.github {
+                color: #a78bfacc;
+                border: 1px solid #a78bfa38;
+                background-color: #a78bfa14;
+            }
+
+            &.linkedin {
+                color: #60a5facc;
+                border: 1px solid #60a5fa38;
+                background-color: #60a5fa14;
+            }
+
+            .social-brand-content {
+                display: flex;
+                flex-direction: row;
+                padding: sizes.$spacing-2;
+                gap: sizes.$spacing-2;
+                font-size: sizes.$spacing-3;
+            }
+
+            .social-name {
+                align-content: center;
+            }
+
+            .arrow {
+                align-self: center;
+            }
+        }
+    }
+}
