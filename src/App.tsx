@@ -1,31 +1,33 @@
-import { useState } from 'react'
 import './App.scss'
-import Header from './components/header/header'
-import Contacts from './pages/contacts/contacts'
-import Education from './pages/education/education'
-import Experience from './pages/experience/experience'
-import Extracurriculars from './pages/extracurriculars/extracurriculars'
-import LandingIntro from './pages/landing/landing'
-import Projects from './pages/projects/projects'
-import Welcome from './pages/welcome/welcome'
+
+import ExperienceContainer from './components/experience-container/experience-container'
+import Footer from './components/footer/footer'
+import SocialsCard from './components/socials-card/socials-card'
+import SpotifyCard from './components/spotify-card/spotify-card'
+import Welcome from './components/welcome/welcome'
+import { experienceData } from './data/experience'
+import useSpotifyWebhookSubscription from './hooks/useSpotifyWebhookSubscription'
+
 
 function App() {
-  const [introDone, setIntroDone] = useState(false);
-
+  useSpotifyWebhookSubscription();
   return (
     <>
-      {!introDone && <LandingIntro onFinish={() => setIntroDone(true)} />}
       <main>
-        <Header />
         <div className='content-container'>
           <Welcome />
-          <Experience />
-          <Education />
-          <Projects />
-          <Extracurriculars />
-          <Contacts />
+          <div className='content-container-row'>
+            <div className='experience-container'>
+              <ExperienceContainer experiences={experienceData} />
+            </div>
+            <div className='extra-content-container'>
+              <SpotifyCard />
+              <SocialsCard />
+            </div>
+          </div>
         </div>
       </main>
+      <Footer />
     </>
   )
 }

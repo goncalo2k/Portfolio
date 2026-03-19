@@ -4,6 +4,7 @@ export const extraCurricularsData: Experience[] = [
     {
         id: "niaefeup-co-head-events",
         company: "NIAEFEUP (Núcleo de Informática da AEFEUP)",
+        companyLogoUrl: "public/goggles.svg",
         position: "Co-head of Events",
         startDate: "June 2023",
         endDate: "May 2024",
@@ -22,6 +23,7 @@ export const extraCurricularsData: Experience[] = [
     {
         id: "sinf-head-external-relations",
         company: "SINF (Semana de Informática FEUP)",
+        companyLogoUrl: "public/vite.svg",
         position: "Head of External Relations Department",
         startDate: "April 2023",
         endDate: "October 2023",
@@ -40,6 +42,7 @@ export const extraCurricularsData: Experience[] = [
     {
         id: "niaefeup-member",
         company: "NIAEFEUP (Núcleo de Informática da AEFEUP)",
+        companyLogoUrl: "public/pfp.jpg",
         position: "Member",
         startDate: "October 2021",
         endDate: "January 2025",

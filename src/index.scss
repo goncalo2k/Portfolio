@@ -2,9 +2,9 @@
 @use "@goncalo2k/g2k-styles/sizes" as sizes;
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 600;
 
   color-scheme: dark;
 
@@ -51,36 +51,47 @@ h1 {
 }
 
 .text {
-  font-size: 20px;
+  font-size: sizes.$spacing-5;
   line-height: 1;
 
   &.secondary {
-    font-weight: lighter;
+    font-weight: 300;
+    color: #ffffff73;
   }
 }
 
 .icon {
-  width: 20px;
-  height: 20px;
+  width: sizes.$spacing-5;
+  height: sizes.$spacing-5;
+}
+
+.logo {
+  width: sizes.$spacing-6;
+  height: sizes.$spacing-6;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     color: colors.$gray-200;
     background: radial-gradient(circle at 50% 55%,
-        colors.$primary,
-        colors.$navy-900 75%);
+        #ca84eb,
+        #102542 75%);
     background-color: colors.$white;
 
     @keyframes gradient {
 
       0%,
       100% {
-        background-position: 0% 50%;
+        background-position: 0% 35%;
+      }
+
+      25%,
+      75% {
+        background-position: 25% 25%;
       }
 
       50% {
-        background-position: 50% 0%;
+        background-position: 35% 0%;
       }
     }
 

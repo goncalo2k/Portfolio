@@ -7,7 +7,6 @@
     .card-header {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
         gap: sizes.$spacing-2;
 
         .project-image {
